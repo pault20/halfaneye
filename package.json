@@ -9,7 +9,7 @@
     "build": "astro build && node scripts/check-links.mjs && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check",
-    "prebuild": "node scripts/sync-design-system.mjs",
+    "prebuild": "node scripts/clear-content-cache.mjs && node scripts/sync-design-system.mjs",
     "predev": "node scripts/sync-design-system.mjs",
     "sync:design": "node scripts/sync-design-system.mjs",
     "a11y": "node scripts/a11y.mjs",
