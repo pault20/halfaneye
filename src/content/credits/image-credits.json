@@ -164,5 +164,30 @@
     "alt": "Log chart: resolvable image points rise steadily from about 1 to 73 across the first seven model stages",
     "after": "Nilsson & Pelger 1994, Fig. 3, p.56 (approximate)",
     "kind": "chart"
+  },
+  {
+    "id": "fig-claim-half-eye-1",
+    "page": "claim-what-use-is-half-an-eye",
+    "file": "claim-half-eye-1.svg",
+    "title": "Six eyes in use today, from a single-cell ocellus to a focused camera eye",
+    "author": "Half an Eye",
+    "source_url": "https://halfaneye.org/claims/what-use-is-half-an-eye/",
+    "licence": "CC BY 4.0",
+    "changes": "",
+    "after": "Land & Nilsson 2012, figs 1.4 and 4.1, and Nilsson & Pelger 1994, fig. 2",
+    "retrieved": "2026-11-07",
+    "alt": "Six eyes in a row, from a one-cell eyespot through cup, pinhole and blurred lens to a focused camera eye, each named with its animal"
+  },
+  {
+    "id": "fig-claim-half-eye-2",
+    "page": "claim-what-use-is-half-an-eye",
+    "file": "claim-half-eye-2.jpg",
+    "title": "Blue sea star, Linckia laevigata, on Acropora coral, Ribbon Reefs, Great Barrier Reef",
+    "author": "Richard Ling",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Linckia_Starfish.JPG",
+    "licence": "CC BY-SA 2.5",
+    "changes": "",
+    "retrieved": "2026-11-07",
+    "alt": "Bright blue five-armed sea star lying across branching coral on a reef"
   }
 ]
