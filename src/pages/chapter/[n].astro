@@ -5,7 +5,7 @@ import TableOfContents from '../../components/TableOfContents.astro';
 import ChapterOpener from '../../components/ChapterOpener.astro';
 import CiteBox from '../../components/CiteBox.astro';
 import ChapterNav from '../../components/ChapterNav.astro';
-import { contents, visibleChapters, chapterUrl, readingMinutes } from '../../lib/content';
+import { contents, visibleChapters, chapterUrl, readingMinutes, liveRoutes } from '../../lib/content';
 import { parts } from '../../data/book';
 
 export async function getStaticPaths() {
@@ -24,14 +24,17 @@ const tocParts = await contents();
 const sections = headings.filter((h) => h.depth === 2).map((h) => ({ slug: h.slug, text: h.text }));
 const isDraft = d.status === 'draft';
 
-// First chapter links back to the contents, the last on to the contents, until the
-// Preface and Atlas pages exist (Milestones 2 and 4).
+// The first chapter links back to the Preface (or the contents until it is
+// published); the last links on to the Atlas.
+const routes = await liveRoutes();
 const prevLink = prev
   ? { dir: `← Chapter ${prev.data.chapter}`, title: prev.data.title, href: chapterUrl(prev.data.chapter) }
-  : { dir: '← Start', title: 'Contents', href: '/#contents' };
+  : routes.has('/preface/')
+    ? { dir: '← Front matter', title: 'Preface', href: '/preface/' }
+    : { dir: '← Start', title: 'Contents', href: '/#contents' };
 const nextLink = next
   ? { dir: `Chapter ${next.data.chapter} →`, title: next.data.title, href: chapterUrl(next.data.chapter) }
-  : { dir: 'More →', title: 'Contents', href: '/#contents' };
+  : { dir: 'Next →', title: 'Atlas of Eyes', href: '/atlas/' };
 ---
 <Layout
   title={d.title}

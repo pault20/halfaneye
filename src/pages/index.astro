@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { contents, visibleChapters, chapterUrl, visibleAtlas, visibleClaims, atlasUrl, claimUrl } from '../lib/content';
+import { liveRoutes, contents, visibleChapters, chapterUrl, visibleAtlas, visibleClaims, atlasUrl, claimUrl } from '../lib/content';
 
 const parts = await contents();
 const first = (await visibleChapters())[0];
 const atlas = await visibleAtlas();
 const claims = await visibleClaims();
+const routes = await liveRoutes();
+const front = [['/preface/', 'Preface'], ['/how-to-use/', 'How to use this book'], ['/about/', 'About']].filter(([h]) => routes.has(h));
 const roman = ['I', 'II', 'III', 'IV'];
 ---
 <Layout searchable={false} title="Half an Eye" description="An open book on the evolution of the eye. Every stage between a light-sensitive patch and the eye you are reading this with is still in use somewhere in the animal kingdom.">
@@ -54,6 +56,9 @@ const roman = ['I', 'II', 'III', 'IV'];
           </div>
         ))}
       </div>
+      {front.length > 0 && (
+        <p class="contents__front">Front matter: {front.map(([h, l], i) => <>{i > 0 && ' · '}<a href={h}>{l}</a></>)}</p>
+      )}
       <p class="contents__note">Chapters are published one at a time, as each is checked against its sources.</p>
     </div>
   </section>

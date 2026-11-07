@@ -1,5 +1,5 @@
 import { getCollection } from 'astro:content';
-import { showDrafts, visibleChapters, visibleAtlas, visibleClaims, chapterUrl, atlasUrl, claimUrl } from './content';
+import { showDrafts, visiblePages, pageUrl, visibleChapters, visibleAtlas, visibleClaims, chapterUrl, atlasUrl, claimUrl } from './content';
 
 export interface BibEntry {
   key: string;
@@ -32,6 +32,7 @@ export async function bibliography(): Promise<BibEntry[]> {
   const pages = [
     ...(await visibleChapters()).map((c) => ({ title: `Chapter ${c.data.chapter}: ${c.data.title}`, url: chapterUrl(c.data.chapter), body: c.body ?? '' })),
     ...(await visibleAtlas()).map((a) => ({ title: `Atlas: ${a.data.common_name}`, url: atlasUrl(a.id), body: a.body ?? '' })),
+    ...(await visiblePages()).map((p) => ({ title: p.data.title, url: pageUrl(p.id), body: p.body ?? '' })),
     ...(await visibleClaims()).map((c) => ({ title: `Claim: ${c.data.title}`, url: claimUrl(c.id), body: c.body ?? '' })),
   ];
   const entries = new Map<string, BibEntry>();

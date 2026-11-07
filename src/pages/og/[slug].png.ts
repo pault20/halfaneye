@@ -2,7 +2,7 @@ import type { APIRoute, GetStaticPaths } from 'astro';
 import { readFileSync } from 'node:fs';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
-import { visibleChapters, visibleAtlas, visibleClaims } from '../../lib/content';
+import { visibleChapters, visibleAtlas, visibleClaims, visiblePages } from '../../lib/content';
 import { parts } from '../../data/book';
 
 // Open Graph images (1200×630), generated at build from the page title and its part colour.
@@ -58,6 +58,9 @@ async function cards(): Promise<Map<string, Card>> {
   }
   for (const a of await visibleAtlas()) {
     all.set(`atlas-${a.id}`, { eyebrow: `Atlas of Eyes · ${a.data.eye_type}`, title: a.data.common_name, sub: a.data.latin_name, bands: PART });
+  }
+  for (const p of await visiblePages()) {
+    all.set(`page-${p.id}`, { eyebrow: 'Half an Eye', title: p.data.title, sub: p.data.standfirst, bands: PART });
   }
   for (const c of await visibleClaims()) {
     all.set(`claims-${c.id}`, { eyebrow: 'Claims and responses', title: c.data.claim, bands: PART });
