@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Log chart: resolvable image points rise steadily from about 1 to 73 across the first seven model stages">
+<style>
+.grid{fill:none;stroke:var(--rule, #cfd7d2);stroke-width:1}
+.axis{fill:none;stroke:var(--ink, #172026);stroke-width:1.2}
+.tick{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);font-variant-numeric:tabular-nums;fill:var(--muted, #4a5860)}
+.ttl{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.bar{fill:var(--muted, #4a5860);stroke:none}
+.val{font:500 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);font-variant-numeric:tabular-nums;fill:var(--ink, #172026)}
+.line{fill:none;stroke:var(--ink, #172026);stroke-width:1.5;stroke-dasharray:3 4}
+.pt{fill:var(--ink, #172026);stroke:none}
+.stg{font:400 12px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.note{font:400 12px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--muted, #4a5860)}
+</style>
+<path class="grid" d="M78 296.0 L616 296.0"/>
+<text class="tick" x="70" y="300.0" text-anchor="end">1</text>
+<path class="grid" d="M78 255.7 L616 255.7"/>
+<text class="tick" x="70" y="259.7" text-anchor="end">2</text>
+<path class="grid" d="M78 202.3 L616 202.3"/>
+<text class="tick" x="70" y="206.3" text-anchor="end">5</text>
+<path class="grid" d="M78 162.0 L616 162.0"/>
+<text class="tick" x="70" y="166.0" text-anchor="end">10</text>
+<path class="grid" d="M78 121.7 L616 121.7"/>
+<text class="tick" x="70" y="125.7" text-anchor="end">20</text>
+<path class="grid" d="M78 68.3 L616 68.3"/>
+<text class="tick" x="70" y="72.3" text-anchor="end">50</text>
+<path class="grid" d="M78 28.0 L616 28.0"/>
+<text class="tick" x="70" y="32.0" text-anchor="end">100</text>
+<text class="tick" x="78.0" y="314" text-anchor="middle">0</text>
+<text class="tick" x="212.5" y="314" text-anchor="middle">500</text>
+<text class="tick" x="347.0" y="314" text-anchor="middle">1,000</text>
+<text class="tick" x="481.5" y="314" text-anchor="middle">1,500</text>
+<text class="tick" x="616.0" y="314" text-anchor="middle">2,000</text>
+<path class="axis" d="M78 296 L616 296"/>
+<path class="axis" d="M78 28 L78 296"/>
+<path class="line" d="M78.0 296.0 L125.3 255.7 L222.7 215.3 L295.4 175.0 L355.9 118.8 L407.5 84.3 L490.4 46.3"/>
+<circle class="pt" cx="78.0" cy="296.0" r="4"/>
+<text class="stg" x="94.0" y="291.0">Stage 1</text>
+<circle class="pt" cx="125.3" cy="255.7" r="4"/>
+<text class="stg" x="118.3" y="247.7" text-anchor="end">Stage 2</text>
+<circle class="pt" cx="222.7" cy="215.3" r="4"/>
+<text class="stg" x="215.7" y="207.3" text-anchor="end">Stage 3</text>
+<circle class="pt" cx="295.4" cy="175.0" r="4"/>
+<text class="stg" x="288.4" y="167.0" text-anchor="end">Stage 4</text>
+<circle class="pt" cx="355.9" cy="118.8" r="4"/>
+<text class="stg" x="348.9" y="110.8" text-anchor="end">Stage 5</text>
+<circle class="pt" cx="407.5" cy="84.3" r="4"/>
+<text class="stg" x="400.5" y="76.3" text-anchor="end">Stage 6</text>
+<circle class="pt" cx="490.4" cy="46.3" r="4"/>
+<text class="stg" x="483.4" y="38.3" text-anchor="end">Stage 7</text>
+<path class="axis" d="M570.0 296 L570.0 288"/>
+<text class="stg" x="574.0" y="282" text-anchor="end">Stage 8, not plotted</text>
+<text class="ttl" x="347.0" y="336" text-anchor="middle">Progress through the model (steps of 1%)</text>
+<text class="ttl" transform="translate(24 162.0) rotate(-90)" text-anchor="middle">Image points resolved (log scale)</text>
+<text class="note" x="616" y="354" text-anchor="end">Approximate values read from Nilsson and Pelger (1994), Fig. 3.</text>
+</svg>
