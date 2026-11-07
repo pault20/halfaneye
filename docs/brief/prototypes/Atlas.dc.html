@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Atlas of Eyes</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/eyebook/tokens.css">
+<link rel="stylesheet" href="ds/eyebook/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+Condensed:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,300..800;1,7..72,300..800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#9a2a52}a:hover{color:#6e1d3a}
+</style>
+</helmet>
+<div style="background: var(--paper); color: var(--ink); font-family: var(--font-serif); min-height: 100%;">
+
+<header style="border-bottom: 1px solid var(--rule);">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 16px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+    <a href="Main.dc.html" style="font-family: var(--font-serif); font-weight: 600; font-size: 20px; color: var(--ink); text-decoration: none;">Half an Eye</a>
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 24px; font-family: var(--font-sans); font-size: 16px; font-weight: 500;">
+      <a href="Main.dc.html" style="color: var(--ink); text-decoration: none;">Contents</a>
+      <a href="Atlas.dc.html" aria-current="page" style="color: var(--accent); text-decoration: none;">Atlas of Eyes</a>
+      <a href="Claim.dc.html" style="color: var(--ink); text-decoration: none;">Claims and responses</a>
+      <a href="Main.dc.html" style="color: var(--ink); text-decoration: none;">About</a>
+    </nav>
+  </div>
+</header>
+
+<main style="max-width: 1280px; margin: 0 auto; padding: 56px 32px 72px; display: flex; flex-direction: column; gap: 32px;">
+  <div style="display: flex; flex-direction: column; gap: 16px; max-width: 40em;">
+    <span style="font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.02em; color: var(--muted);">15 OF 38 ENTRIES PUBLISHED</span>
+    <h1 style="margin: 0; font-variation-settings: 'opsz' 60; font-size: 52px; line-height: 56px; font-weight: 600; letter-spacing: -0.015em;">Atlas of Eyes</h1>
+    <p style="margin: 0; font-size: 21px; line-height: 32px;">One page per animal, ordered from the simplest light sensor to the sharpest eye known. Filter by how the eye forms its image.</p>
+  </div>
+
+  <div role="group" aria-label="Filter by eye type" style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <sc-for list="{{filters}}" as="f" hint-placeholder-count="6">
+      <sc-if value="{{ f.on }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ f.pick }}" aria-pressed="true" style="min-height: 44px; padding: 8px 16px; border-radius: 3px; font-family: var(--font-sans); font-size: 15px; font-weight: 500; cursor: pointer; background: var(--ink); color: var(--paper); border: 1px solid var(--ink);">{{ f.label }}</button>
+      </sc-if>
+      <sc-if value="{{ f.off }}" hint-placeholder-val="{{ true }}">
+        <button type="button" onClick="{{ f.pick }}" aria-pressed="false" style="min-height: 44px; padding: 8px 16px; border-radius: 3px; font-family: var(--font-sans); font-size: 15px; font-weight: 500; cursor: pointer; background: var(--raised); color: var(--ink); border: 1px solid var(--border);">{{ f.label }}</button>
+      </sc-if>
+    </sc-for>
+  </div>
+
+  <div class="eb-atlas">
+    <sc-for list="{{shown}}" as="e" hint-placeholder-count="15">
+      <a class="eb-card" href="AtlasEntry.dc.html">
+        <div class="eb-card__plate" style="display: grid; place-items: center;">
+          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--muted);">PHOTO · {{ e.photo }}</span>
+        </div>
+        <div class="eb-card__body">
+          <span class="eb-card__type">{{ e.type }}</span>
+          <h2 class="eb-card__name">{{ e.name }}</h2>
+          <span class="eb-card__latin">{{ e.latin }}</span>
+          <p class="eb-card__fact">{{ e.fact }}</p>
+          <div class="eb-card__meta"><span>{{ e.group }}</span><span>{{ e.key }}</span></div>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { filter: 'all' }; }
+  renderVals() {
+    const E = [
+      { k: 'spot', type: 'Eyespot', name: 'Euglena', latin: 'Euglena gracilis', fact: 'A single-celled alga that steers toward light with a rhodopsin eyespot beside its flagellum.', group: 'Euglenozoa', key: '1 cell', photo: 'micrograph' },
+      { k: 'spot', type: 'Eyespot', name: 'Ragworm larva', latin: 'Platynereis dumerilii', fact: 'Its first eye is two cells: one photoreceptor and one pigment cell that shades it.', group: 'Annelida', key: '2 cells', photo: 'larva' },
+      { k: 'spot', type: 'Pigment cup', name: 'Planarian', latin: 'Dugesia sp.', fact: 'A cup of receptors wired back to front, like ours, that tells light from shade.', group: 'Platyhelminthes', key: '~35° per receptor', photo: 'flatworm' },
+      { k: 'lens', type: 'Lens eye', name: 'Box jellyfish', latin: 'Tripedalia cystophora', fact: '24 eyes in four clusters. Its lenses focus sharply, but behind the retina.', group: 'Cnidaria', key: '24 eyes', photo: 'rhopalium' },
+      { k: 'compound', type: 'Compound eye', name: 'Blue sea star', latin: 'Linckia laevigata', fact: 'A lensless eye on each arm tip, sharp enough to find its way back to the reef.', group: 'Echinodermata', key: '~150 units', photo: 'arm tip' },
+      { k: 'mirror', type: 'Pinhole eye', name: 'Chambered nautilus', latin: 'Nautilus pompilius', fact: 'No lens and no cornea. Seawater flows into the eye through an open pupil.', group: 'Mollusca', key: 'open pupil', photo: 'eye' },
+      { k: 'mirror', type: 'Mirror eye', name: 'Great scallop', latin: 'Pecten maximus', fact: 'Up to 200 eyes, each focusing light with a mirror of square guanine crystals.', group: 'Mollusca', key: '2 retinas', photo: 'mantle eyes' },
+      { k: 'lens', type: 'Lens eye', name: 'West Indian fuzzy chiton', latin: 'Acanthopleura granulata', fact: 'Hundreds of eyes with lenses of aragonite, set into its armour plates.', group: 'Mollusca', key: 'mineral lenses', photo: 'shell plate' },
+      { k: 'lens', type: 'Camera eye', name: 'Common octopus', latin: 'Octopus vulgaris', fact: 'A camera eye built independently of ours, with photoreceptors facing the light.', group: 'Mollusca', key: 'no blind spot', photo: 'eye' },
+      { k: 'spot', type: 'Proto-eye', name: 'Hagfish', latin: 'Eptatretus stoutii', fact: 'No lens, no eye muscles, and the simplest retina of any living vertebrate.', group: 'Chordata', key: '~530 Mya', photo: 'head' },
+      { k: 'lens', type: 'Camera eye', name: 'Human', latin: 'Homo sapiens', fact: 'Light crosses the retina’s wiring before it reaches the photoreceptors.', group: 'Chordata', key: 'blind spot', photo: 'retina' },
+      { k: 'compound', type: 'Compound eye', name: 'Trilobites', latin: 'Trilobita', fact: 'Lenses made of calcite: the oldest preserved visual system on record.', group: 'Arthropoda', key: '~520 Mya', photo: 'fossil eye' },
+      { k: 'compound', type: 'Compound eye', name: 'Mantis shrimp', latin: 'Haptosquilla trispinosa', fact: 'Twelve colour receptors, yet worse at telling colours apart than you are.', group: 'Arthropoda', key: '12 channels', photo: 'eyes' },
+      { k: 'lens', type: 'Camera eye', name: 'Wedge-tailed eagle', latin: 'Aquila audax', fact: 'Resolves about twice the detail a human eye can, but only in bright light.', group: 'Chordata', key: '~140 cycles/°', photo: 'head' },
+      { k: 'lost', type: 'Lost eye', name: 'Mexican cavefish', latin: 'Astyanax mexicanus', fact: 'Cave populations lost their eyes. Sight costs young fish up to 15% of resting energy.', group: 'Chordata', key: 'up to 15%', photo: 'cave form' }
+    ];
+    const F = [['all','All'],['spot','Eyespots and cups'],['lens','Lens and camera eyes'],['compound','Compound eyes'],['mirror','Mirror and pinhole eyes'],['lost','Lost eyes']];
+    const cur = this.state.filter;
+    return {
+      filters: F.map(([id, label]) => ({
+        label,
+        on: cur === id,
+        off: cur !== id,
+        pick: () => this.setState({ filter: id })
+      })),
+      shown: E.filter((e) => cur === 'all' || e.k === cur)
+    };
+  }
+}
+</script>
+</body>
+</html>
