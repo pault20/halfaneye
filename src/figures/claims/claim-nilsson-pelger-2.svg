@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" role="img" aria-label="Five simple camera eyes: open, half-closed, pinhole, then a weak lens and a focusing lens with a wide pupil">
+<style>
+.wall{fill:none;stroke:var(--ink, #172026);stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter}
+.sen{fill:none;stroke:var(--part-2, #0d7480);stroke-width:6;stroke-linecap:butt}
+.lens{fill:var(--part-2-tint, #dcecee);stroke:var(--part-2, #0d7480);stroke-width:2}
+.lens2{fill:var(--part-2, #0d7480);fill-opacity:0.25;stroke:none}
+.light{fill:none;stroke:var(--muted, #4a5860);stroke-width:1.5;stroke-dasharray:3 3}
+.dim{fill:none;stroke:var(--muted, #4a5860);stroke-width:0.75;stroke-dasharray:2 3}
+.lighthead{fill:none;stroke:var(--muted, #4a5860);stroke-width:1.5;stroke-linejoin:round}
+.spot{fill:none;stroke:var(--ink, #172026);stroke-width:1.5}
+.rule{fill:none;stroke:var(--rule, #cfd7d2);stroke-width:1}
+.switch{fill:none;stroke:var(--muted, #4a5860);stroke-width:1;stroke-dasharray:4 3}
+.num{font:600 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.eye{font:500 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.job{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--muted, #4a5860)}
+.tag{font:400 12px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--muted, #4a5860)}
+</style>
+<!-- After Tiwary et al. 2025, Sci Adv 11:eady2888, fig. 4A (CC BY 4.0), simplified. Chamber = aperture + sensor of the simulated eye, not tissue. Aperture sizes relative, not measured. -->
+<!-- 1. Open eye -->
+<g transform="translate(0 0)">
+<path class="wall" d="M52 60 L118 60"/>
+<path class="wall" d="M52 140 L118 140"/>
+<path class="sen" d="M121 57 L121 143"/>
+<path class="light" d="M12 70 L52 70 L118 70"/>
+<path class="light" d="M12 100 L52 100 L118 100"/>
+<path class="light" d="M12 130 L52 130 L118 130"/>
+<path class="lighthead" d="M26 66.5 L32 70 L26 73.5"/>
+<path class="lighthead" d="M26 96.5 L32 100 L26 103.5"/>
+<path class="lighthead" d="M26 126.5 L32 130 L26 133.5"/>
+<path class="spot" d="M126 70 L130 70 L130 130 L126 130"/>
+<text class="num" x="12" y="176">1</text><text class="eye" x="26" y="176">Open eye</text>
+<text class="job" x="26" y="193">Plenty of light,</text>
+<text class="job" x="26" y="209">very blurred</text>
+</g>
+<!-- 2. Cup -->
+<g transform="translate(152 0)">
+<path class="wall" d="M52 86 L52 60 L118 60"/>
+<path class="wall" d="M52 114 L52 140 L118 140"/>
+<path class="sen" d="M121 57 L121 143"/>
+<path class="light" d="M12 90 L52 90 L118 90"/>
+<path class="light" d="M12 100 L52 100 L118 100"/>
+<path class="light" d="M12 110 L52 110 L118 110"/>
+<path class="lighthead" d="M26 86.5 L32 90 L26 93.5"/>
+<path class="lighthead" d="M26 96.5 L32 100 L26 103.5"/>
+<path class="lighthead" d="M26 106.5 L32 110 L26 113.5"/>
+<path class="spot" d="M126 90 L130 90 L130 110 L126 110"/>
+<text class="num" x="12" y="176">2</text><text class="eye" x="26" y="176">Cup</text>
+<text class="job" x="26" y="193">Less light,</text>
+<text class="job" x="26" y="209">sharper</text>
+</g>
+<!-- 3. Pinhole -->
+<g transform="translate(304 0)">
+<path class="wall" d="M52 94 L52 60 L118 60"/>
+<path class="wall" d="M52 106 L52 140 L118 140"/>
+<path class="sen" d="M121 57 L121 143"/>
+<path class="dim" d="M12 96 L52 96 L118 96"/>
+<path class="dim" d="M12 100 L52 100 L118 100"/>
+<path class="dim" d="M12 104 L52 104 L118 104"/>
+<path class="lighthead" d="M26 96.5 L32 100 L26 103.5"/>
+<path class="spot" d="M126 96 L130 96 L130 104 L126 104"/>
+<text class="num" x="12" y="176">3</text><text class="eye" x="26" y="176">Pinhole</text>
+<text class="job" x="26" y="193">Sharp but dim</text>
+</g>
+<!-- 4. Weak lens -->
+<g transform="translate(456 0)">
+<path class="wall" d="M52 82 L52 60 L118 60"/>
+<path class="wall" d="M52 118 L52 140 L118 140"/>
+<path class="sen" d="M121 57 L121 143"/>
+<ellipse class="lens" cx="52" cy="100" rx="3" ry="17"/>
+<path class="light" d="M12 87 L52 87 L118 91"/>
+<path class="light" d="M12 100 L52 100 L118 100"/>
+<path class="light" d="M12 113 L52 113 L118 109"/>
+<path class="lighthead" d="M26 83.5 L32 87 L26 90.5"/>
+<path class="lighthead" d="M26 96.5 L32 100 L26 103.5"/>
+<path class="lighthead" d="M26 109.5 L32 113 L26 116.5"/>
+<path class="spot" d="M126 91 L130 91 L130 109 L126 109"/>
+<text class="num" x="12" y="176">4</text><text class="eye" x="26" y="176">Weak lens</text>
+<text class="job" x="26" y="193">Too weak to focus</text>
+</g>
+<!-- 5. Focused lens -->
+<g transform="translate(608 0)">
+<path class="wall" d="M52 70 L52 60 L118 60"/>
+<path class="wall" d="M52 130 L52 140 L118 140"/>
+<path class="sen" d="M121 57 L121 143"/>
+<ellipse class="lens" cx="52" cy="100" rx="11" ry="29"/>
+<ellipse class="lens2" cx="52" cy="100" rx="7" ry="18.0"/>
+<ellipse class="lens2" cx="52" cy="100" rx="3.5" ry="8.7"/>
+<path class="light" d="M12 78 L52 78 L118 100"/>
+<path class="light" d="M12 100 L52 100 L118 100"/>
+<path class="light" d="M12 122 L52 122 L118 100"/>
+<path class="lighthead" d="M26 74.5 L32 78 L26 81.5"/>
+<path class="lighthead" d="M26 96.5 L32 100 L26 103.5"/>
+<path class="lighthead" d="M26 118.5 L32 122 L26 125.5"/>
+<path class="spot" d="M130 97 L130 103"/>
+<text class="num" x="12" y="176">5</text><text class="eye" x="26" y="176">Focused lens</text>
+<text class="job" x="26" y="193">Wide pupil,</text>
+<text class="job" x="26" y="209">sharp image</text>
+</g>
+<path class="rule" d="M152 34 L152 212"/>
+<path class="rule" d="M304 34 L304 212"/>
+<path class="rule" d="M608 34 L608 212"/>
+<path class="switch" d="M456 30 L456 212"/>
+<text class="tag" x="464" y="24">Lens mutations switched on (generation 30)</text>
+<text class="tag" x="752" y="240" text-anchor="end">Simplified from a computer simulation · the lens is an optical mask, not living tissue</text>
+</svg>

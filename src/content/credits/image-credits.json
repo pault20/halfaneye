@@ -189,5 +189,32 @@
     "changes": "",
     "retrieved": "2026-11-07",
     "alt": "Bright blue five-armed sea star lying across branching coral on a reef"
+  },
+  {
+    "id": "fig-claim-nilsson-pelger-1",
+    "page": "claim-nilsson-and-pelger-was-not-a-real-simulation",
+    "file": "claim-nilsson-pelger-1.svg",
+    "title": "Image points resolved at each stage of Nilsson and Pelger's model eye",
+    "author": "Half an Eye",
+    "kind": "chart",
+    "source_url": "https://halfaneye.org/claims/nilsson-and-pelger-was-not-a-real-simulation/",
+    "licence": "CC BY 4.0",
+    "changes": "",
+    "after": "Nilsson & Pelger 1994, fig. 3, p.56 (approximate)",
+    "retrieved": "2026-11-07",
+    "alt": "Log chart: image points the model eye resolves rise steadily from about 1 to 73 across its first seven stages"
+  },
+  {
+    "id": "fig-claim-nilsson-pelger-2",
+    "page": "claim-nilsson-and-pelger-was-not-a-real-simulation",
+    "file": "claim-nilsson-pelger-2.svg",
+    "title": "Five stages found by a 2025 computer simulation of eye evolution",
+    "author": "Half an Eye",
+    "source_url": "https://halfaneye.org/claims/nilsson-and-pelger-was-not-a-real-simulation/",
+    "licence": "CC BY 4.0",
+    "changes": "",
+    "after": "Tiwary et al. 2025, Sci Adv 11:eady2888, fig. 4 (CC BY 4.0)",
+    "retrieved": "2026-11-07",
+    "alt": "Five simple camera eyes: open, half-closed, pinhole, then a weak lens and a focusing lens with a wide pupil"
   }
 ]

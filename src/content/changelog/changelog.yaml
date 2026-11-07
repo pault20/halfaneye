@@ -1,5 +1,12 @@
 # Newest entries are sorted to the top by date. page is an internal URL.
 # Sample entries for build testing; status: draft entries appear on previews only.
+- id: 2026-11-07-claim-nilsson-pelger
+  date: 2026-11-07
+  page: /claims/nilsson-and-pelger-was-not-a-real-simulation/
+  title: "Claim: Nilsson and Pelger was not a real simulation"
+  kind: published
+  summary: First published.
+  status: published
 - id: 2026-11-07-claim-half-an-eye
   date: 2026-11-07
   page: /claims/what-use-is-half-an-eye/
