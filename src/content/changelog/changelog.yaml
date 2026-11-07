@@ -1,5 +1,12 @@
 # Newest entries are sorted to the top by date. page is an internal URL.
 # Sample entries for build testing; status: draft entries appear on previews only.
+- id: 2026-11-07-chapter-4
+  date: 2026-11-07
+  page: /chapter/4/
+  title: "Chapter 4: Step by step: eyespot, cup, pinhole, lens"
+  kind: published
+  summary: First published.
+  status: published
 - id: 2026-11-07-chapter-6
   date: 2026-11-07
   page: /chapter/6/

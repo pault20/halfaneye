@@ -150,7 +150,7 @@ Provide: the media inside `.eb-figure__plate` (SVG, image or video), the figure 
 - Number figures by chapter: FIG. 4.1, FIG. 4.2. Numbers never change once published.
 - Captions state the finding ("Each step improves resolution"), not the contents ("A diagram of eyes").
 - Every credit names its licence. Our own drawings are "Half an Eye, CC BY 4.0".
-- House drawings use `ink` for structure, the chapter's part colour for the light-sensitive layer, and `figure-number` type for labels. No gradients, no drop shadows.
+- House drawings use `ink` for structure, the chapter's part colour for the light-sensitive layer, and `font-sans` at 13px in sentence case for labels, with thin straight leaders (see README, Imagery). No gradients, no drop shadows.
 
 ```html
 <!-- @dsCard group="Reading" height=430 subtitle="Numbered figures with credit" -->
@@ -158,11 +158,11 @@ Provide: the media inside `.eb-figure__plate` (SVG, image or video), the figure 
 <figure class="eb-figure">
   <div class="eb-figure__plate">
     <svg viewBox="0 0 640 360" role="img" aria-label="Four eye stages: flat patch, cup, pinhole, lens">
-      <style>.s{fill:none;stroke:var(--ink);stroke-width:2}.r{fill:none;stroke:var(--part-2);stroke-width:6}.l{fill:var(--part-2-tint);stroke:var(--part-2);stroke-width:2}.t{font:500 12px var(--font-mono);fill:var(--muted)}</style>
-      <g transform="translate(80 180)"><path class="r" d="M-40 20 L40 20"/><path class="s" d="M-48 28 L48 28"/><text class="t" x="0" y="80" text-anchor="middle">PATCH</text></g>
-      <g transform="translate(240 180)"><path class="r" d="M-36 -20 Q0 50 36 -20"/><path class="s" d="M-46 -30 Q0 66 46 -30"/><text class="t" x="0" y="80" text-anchor="middle">CUP</text></g>
-      <g transform="translate(400 180)"><path class="r" d="M-14 -40 A44 44 0 1 0 14 -40"/><path class="s" d="M-10 -52 A54 54 0 1 0 10 -52"/><text class="t" x="0" y="80" text-anchor="middle">PINHOLE</text></g>
-      <g transform="translate(560 180)"><path class="r" d="M-24 -38 A44 44 0 1 0 24 -38"/><path class="s" d="M-20 -50 A54 54 0 1 0 20 -50"/><circle class="l" cx="0" cy="-34" r="16"/><text class="t" x="0" y="80" text-anchor="middle">LENS</text></g>
+      <style>.s{fill:none;stroke:var(--ink);stroke-width:2}.r{fill:none;stroke:var(--part-2);stroke-width:6}.l{fill:var(--part-2-tint);stroke:var(--part-2);stroke-width:2}.t{font:400 13px var(--font-sans);fill:var(--ink)}</style>
+      <g transform="translate(80 180)"><path class="r" d="M-40 20 L40 20"/><path class="s" d="M-48 28 L48 28"/><text class="t" x="0" y="80" text-anchor="middle">Patch</text></g>
+      <g transform="translate(240 180)"><path class="r" d="M-36 -20 Q0 50 36 -20"/><path class="s" d="M-46 -30 Q0 66 46 -30"/><text class="t" x="0" y="80" text-anchor="middle">Cup</text></g>
+      <g transform="translate(400 180)"><path class="r" d="M-14 -40 A44 44 0 1 0 14 -40"/><path class="s" d="M-10 -52 A54 54 0 1 0 10 -52"/><text class="t" x="0" y="80" text-anchor="middle">Pinhole</text></g>
+      <g transform="translate(560 180)"><path class="r" d="M-24 -38 A44 44 0 1 0 24 -38"/><path class="s" d="M-20 -50 A54 54 0 1 0 20 -50"/><circle class="l" cx="0" cy="-34" r="16"/><text class="t" x="0" y="80" text-anchor="middle">Lens</text></g>
     </svg>
   </div>
   <figcaption><span class="eb-figure__num">FIG. 4.1</span><span>Four stages that living animals still use today. Each step improves resolution; none requires the next to be useful.</span><span class="eb-figure__credit">Drawing: Half an Eye, CC BY 4.0. After Nilsson &amp; Pelger 1994.</span></figcaption>

@@ -54,8 +54,11 @@ a:hover { text-decoration-thickness: 2px; }
 .eb-text > h2:first-child { margin-top: 0; }
 .eb-text h3 { margin: var(--space-6) 0 var(--space-3); font-size: 22px; line-height: 28px; font-weight: 600; }
 .eb-text .eb-figure { margin: var(--space-2) 0 var(--space-12); }
-.eb-text .eb-figure__plate { aspect-ratio: 16 / 7; }
-.eb-figure__plate > svg, .eb-figure__plate > img { height: auto; object-fit: contain; }
+/* Plates keep the media's own shape: diagrams and photos are never cropped. */
+.eb-figure__plate--diagram, .eb-figure__plate--photo, .eb-figure__plate--animation { aspect-ratio: auto; }
+.eb-text .eb-figure__plate--missing { aspect-ratio: 16 / 7; }
+.eb-figure__plate--diagram > svg { display: block; width: 100%; height: auto; }
+.eb-figure__plate--photo > img { display: block; width: auto; max-width: 100%; height: auto; max-height: min(640px, 80vh); margin: 0 auto; object-fit: contain; }
 .eb-figure__missing { display: grid; gap: var(--space-1); place-content: center; text-align: center; width: 100%; height: 100%; border: 1px dashed var(--border); font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); }
 .eb-figure__credit a { color: inherit; }
 .eb-sidenote .eb-doi a { color: inherit; }
@@ -303,3 +306,33 @@ a:hover { text-decoration-thickness: 2px; }
 .eb-toc__plain .eb-toc__item a { display: block; padding: 6px 0; }
 .eb-toc__item .eb-toc__plain a { display: block; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Teaching animation (Fig. 4.9): drawing beside a readout; stacked on phones */
+.eb-anim { width: 100%; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--space-6); align-items: center; padding: var(--space-4); }
+.eb-anim:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.eb-anim__svg { display: block; width: 100%; height: auto; }
+.eb-anim__panel { display: grid; gap: var(--space-3); font-family: var(--font-sans); font-size: 15px; line-height: 21px; color: var(--ink); }
+.eb-anim__stage { margin: 0; font-size: 17px; font-weight: 600; }
+.eb-anim__readout { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-1) var(--space-3); font-variant-numeric: tabular-nums; }
+.eb-anim__readout dt { color: var(--muted); }
+.eb-anim__readout dd { margin: 0; }
+.eb-anim__note { margin: 0; min-height: 42px; font-style: italic; font-family: var(--font-serif); }
+.eb-anim__note:empty { min-height: 0; }
+.eb-anim__controls { display: none; gap: var(--space-2); }
+.js .eb-anim__controls { display: flex; }
+.eb-anim__controls button { min-width: 44px; min-height: 44px; padding: 0 var(--space-4); border-radius: var(--radius-1); border: 1px solid var(--border); background: var(--raised); color: var(--ink); font: 500 15px/1 var(--font-sans); cursor: pointer; }
+.eb-anim__controls button[data-play] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.eb-anim__controls button:disabled { opacity: 0.45; cursor: default; }
+.eb-anim__controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.eb-anim__key { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-1); font-size: 13px; line-height: 18px; }
+.eb-anim__key li { display: flex; align-items: center; gap: var(--space-2); }
+.eb-anim__sw { flex: none; width: 22px; height: 10px; }
+.eb-anim__sw--rec { background: var(--part-2); height: 6px; }
+.eb-anim__sw--pig { background: var(--ink); height: 5px; }
+.eb-anim__sw--vit { background: var(--raised); border: 1px solid var(--ink); }
+.eb-anim__sw--lens { background: var(--part-2-tint); border: 1.5px solid var(--part-2); border-radius: 50%; height: 14px; width: 14px; }
+.eb-anim__p { margin: 0; font-size: 13px; line-height: 18px; color: var(--muted); }
+@media (max-width: 640px) { .eb-anim { grid-template-columns: minmax(0, 1fr); } }
+
+/* Two markers on one sentence read as "1,2", not "12" */
+.eb-cite + .eb-cite::before { content: ","; }
