@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 620" role="img" aria-label="Six eyes in a row, from a one-cell eyespot through cup, pinhole and blurred lens to a focused camera eye, each named with its animal">
+<style>
+.cell{fill:none;stroke:var(--ink, #172026);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.cellf{fill:var(--raised, #fbfcfa);stroke:var(--ink, #172026);stroke-width:2}
+.nuc{fill:none;stroke:var(--ink, #172026);stroke-width:1.5}
+.thin{fill:none;stroke:var(--ink, #172026);stroke-width:1}
+.pig{fill:var(--ink, #172026);stroke:none}
+.pigs{fill:none;stroke:var(--ink, #172026);stroke-width:6;stroke-linejoin:round;stroke-linecap:butt}
+.ret{fill:none;stroke:var(--part-2, #0d7480);stroke-width:6;stroke-linejoin:round;stroke-linecap:butt}
+.mv{fill:none;stroke:var(--part-2, #0d7480);stroke-width:2;stroke-linecap:round}
+.rh{fill:none;stroke:var(--part-2, #0d7480);stroke-width:6;stroke-linecap:round}
+.rl{fill:none;stroke:var(--part-2, #0d7480);stroke-width:6;stroke-linecap:butt}
+.lens{fill:var(--part-2-tint, #dcecee);stroke:var(--part-2, #0d7480);stroke-width:2}
+.lens2{fill:var(--part-2, #0d7480);fill-opacity:0.25;stroke:none}
+.iris{fill:none;stroke:var(--ink, #172026);stroke-width:6;stroke-linecap:round}
+.cil{fill:none;stroke:var(--ink, #172026);stroke-width:2;stroke-linecap:round}
+.light{fill:none;stroke:var(--muted, #4a5860);stroke-width:1.5;stroke-dasharray:3 3}
+.lighthead{fill:none;stroke:var(--muted, #4a5860);stroke-width:1.5;stroke-linejoin:round}
+.rule{fill:none;stroke:var(--rule, #cfd7d2);stroke-width:1}
+.num{font:600 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.eye{font:500 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.ani{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.job{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--muted, #4a5860)}
+.tag{font:400 12px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--muted, #4a5860)}
+</style>
+
+<!-- 1. Single-cell ocellus, from Fig. 4.1 panel (a) -->
+<g transform="translate(0 -3.5) scale(0.75)">
+<path class="light" d="M150 18 L150 48"/><path class="lighthead" d="M145 40 L150 48 L155 40"/>
+<path class="light" d="M170 18 L170 48"/><path class="lighthead" d="M165 40 L170 48 L175 40"/>
+<ellipse class="cell" cx="160" cy="150" rx="46" ry="58"/>
+<path class="pig" d="M190.0 112.0 L189.9 114.4 L189.6 116.7 L189.2 119.0 L188.5 121.3 L187.7 123.5 L186.7 125.6 L185.6 127.7 L184.3 129.6 L182.8 131.5 L181.2 133.2 L179.5 134.8 L177.6 136.3 L175.7 137.6 L173.6 138.7 L171.5 139.7 L169.3 140.5 L167.0 141.2 L164.7 141.6 L162.4 141.9 L160.0 142.0 L157.6 141.9 L155.3 141.6 L153.0 141.2 L150.7 140.5 L148.5 139.7 L146.4 138.7 L144.3 137.6 L142.4 136.3 L140.5 134.8 L138.8 133.2 L137.2 131.5 L135.7 129.6 L134.4 127.7 L133.3 125.6 L132.3 123.5 L131.5 121.3 L130.8 119.0 L130.4 116.7 L130.1 114.4 L130.0 112.0 L139.0 112.0 L139.1 113.6 L139.3 115.3 L139.6 116.9 L140.0 118.5 L140.6 120.0 L141.3 121.5 L142.1 123.0 L143.0 124.3 L144.0 125.6 L145.2 126.8 L146.4 128.0 L147.7 129.0 L149.0 129.9 L150.5 130.7 L152.0 131.4 L153.5 132.0 L155.1 132.4 L156.7 132.7 L158.4 132.9 L160.0 133.0 L161.6 132.9 L163.3 132.7 L164.9 132.4 L166.5 132.0 L168.0 131.4 L169.5 130.7 L171.0 129.9 L172.3 129.0 L173.6 128.0 L174.8 126.8 L176.0 125.6 L177.0 124.3 L177.9 123.0 L178.7 121.5 L179.4 120.0 L180.0 118.5 L180.4 116.9 L180.7 115.3 L180.9 113.6 L181.0 112.0 Z"/>
+<path class="mv" d="M144 110 L144 124.1"/><path class="mv" d="M148 110 L148 127.7"/><path class="mv" d="M152 110 L152 129.9"/><path class="mv" d="M156 110 L156 131.1"/><path class="mv" d="M160 110 L160 131.5"/><path class="mv" d="M164 110 L164 131.1"/><path class="mv" d="M168 110 L168 129.9"/><path class="mv" d="M172 110 L172 127.7"/><path class="mv" d="M176 110 L176 124.1"/>
+<circle class="nuc" cx="160" cy="170" r="9"/>
+<path class="cil" d="M160 208 C150 222 172 230 162 244 C154 255 170 260 166 266"/>
+</g>
+
+<!-- 2. Two-cell eyespot, from Fig. 4.1 panel (b) -->
+<g transform="translate(224.25 -3.5) scale(0.75)">
+<path class="light" d="M130 18 L130 48"/><path class="lighthead" d="M125 40 L130 48 L135 40"/>
+<path class="light" d="M150 18 L150 48"/><path class="lighthead" d="M145 40 L150 48 L155 40"/>
+<path class="cell" d="M179.8 116.5 L180.0 119.8 L179.9 123.1 L179.5 126.4 L178.8 129.7 L177.9 132.9 L176.7 135.9 L175.2 138.9 L173.5 141.8 L171.6 144.5 L169.5 147.0 L167.2 149.4 L164.6 151.5 L161.9 153.5 L159.1 155.2 L156.1 156.6 L153.0 157.8 L149.8 158.8 L146.6 159.5 L143.3 159.9 L140.0 160.0 L136.7 159.9 L133.4 159.5 L130.2 158.8 L127.0 157.8 L123.9 156.6 L120.9 155.2 L118.1 153.5 L115.4 151.5 L112.8 149.4 L110.5 147.0 L108.4 144.5 L106.5 141.8 L104.8 138.9 L103.3 135.9 L102.1 132.9 L101.2 129.7 L100.5 126.4 L100.1 123.1 L100.0 119.8 L100.2 116.5 L118.1 118.1 L118.0 119.9 L118.1 121.7 L118.3 123.5 L118.7 125.3 L119.2 127.1 L119.8 128.8 L120.6 130.4 L121.5 132.0 L122.6 133.5 L123.8 134.9 L125.1 136.2 L126.5 137.3 L127.9 138.4 L129.5 139.3 L131.1 140.1 L132.8 140.8 L134.6 141.3 L136.4 141.7 L138.2 141.9 L140.0 142.0 L141.8 141.9 L143.6 141.7 L145.4 141.3 L147.2 140.8 L148.9 140.1 L150.5 139.3 L152.1 138.4 L153.5 137.3 L154.9 136.2 L156.2 134.9 L157.4 133.5 L158.5 132.0 L159.4 130.4 L160.2 128.8 L160.8 127.1 L161.3 125.3 L161.7 123.5 L161.9 121.7 L162.0 119.9 L161.9 118.1 Z"/>
+<path class="pig" d="M176.0 120.0 L175.9 122.8 L175.6 125.6 L175.0 128.4 L174.2 131.1 L173.3 133.8 L172.1 136.3 L170.7 138.8 L169.1 141.2 L167.4 143.4 L165.5 145.5 L163.4 147.4 L161.2 149.1 L158.8 150.7 L156.3 152.1 L153.8 153.3 L151.1 154.2 L148.4 155.0 L145.6 155.6 L142.8 155.9 L140.0 156.0 L137.2 155.9 L134.4 155.6 L131.6 155.0 L128.9 154.2 L126.2 153.3 L123.7 152.1 L121.2 150.7 L118.8 149.1 L116.6 147.4 L114.5 145.5 L112.6 143.4 L110.9 141.2 L109.3 138.8 L107.9 136.3 L106.7 133.8 L105.8 131.1 L105.0 128.4 L104.4 125.6 L104.1 122.8 L104.0 120.0 L116.0 120.0 L116.1 121.9 L116.3 123.8 L116.7 125.6 L117.2 127.4 L117.8 129.2 L118.6 130.9 L119.5 132.5 L120.6 134.1 L121.8 135.6 L123.0 137.0 L124.4 138.2 L125.9 139.4 L127.5 140.5 L129.1 141.4 L130.8 142.2 L132.6 142.8 L134.4 143.3 L136.2 143.7 L138.1 143.9 L140.0 144.0 L141.9 143.9 L143.8 143.7 L145.6 143.3 L147.4 142.8 L149.2 142.2 L150.9 141.4 L152.5 140.5 L154.1 139.4 L155.6 138.2 L157.0 137.0 L158.2 135.6 L159.4 134.1 L160.5 132.5 L161.4 130.9 L162.2 129.2 L162.8 127.4 L163.3 125.6 L163.7 123.8 L163.9 121.9 L164.0 120.0 Z"/>
+<ellipse class="cell" cx="232" cy="170" rx="30" ry="40"/>
+<circle class="nuc" cx="236" cy="178" r="9"/>
+<path class="cell" d="M214 140 C204 96 140 84 140 122"/>
+<path class="mv" d="M128 122 L128 135.4"/><path class="mv" d="M132 122 L132 137.5"/><path class="mv" d="M136 122 L136 138.6"/><path class="mv" d="M140 122 L140 139.0"/><path class="mv" d="M144 122 L144 138.6"/><path class="mv" d="M148 122 L148 137.5"/><path class="mv" d="M152 122 L152 135.4"/>
+</g>
+
+<!-- 3. Pigment cup, from Fig. 4.1 panel (c) -->
+<g transform="translate(480 -3.5) scale(0.75)">
+<path class="light" d="M132 18 L132 48"/><path class="lighthead" d="M127 40 L132 48 L137 40"/>
+<path class="light" d="M188 18 L188 48"/><path class="lighthead" d="M183 40 L188 48 L193 40"/>
+<path class="cell" d="M225.0 138.5 L225.7 144.2 L226.0 150.0 L225.7 155.8 L225.0 161.5 L223.8 167.1 L222.0 172.6 L219.8 177.9 L217.2 183.0 L214.1 187.9 L210.6 192.4 L206.7 196.7 L202.4 200.6 L197.9 204.1 L193.0 207.2 L187.9 209.8 L182.6 212.0 L177.1 213.8 L171.5 215.0 L165.8 215.7 L160.0 216.0 L154.2 215.7 L148.5 215.0 L142.9 213.8 L137.4 212.0 L132.1 209.8 L127.0 207.2 L122.1 204.1 L117.6 200.6 L113.3 196.7 L109.4 192.4 L105.9 187.9 L102.8 183.0 L100.2 177.9 L98.0 172.6 L96.2 167.1 L95.0 161.5 L94.3 155.8 L94.0 150.0 L94.3 144.2 L95.0 138.5 L108.8 141.0 L108.2 145.5 L108.0 150.0 L108.2 154.5 L108.8 159.0 L109.8 163.5 L111.1 167.8 L112.9 172.0 L115.0 176.0 L117.4 179.8 L120.2 183.4 L123.2 186.8 L126.6 189.8 L130.2 192.6 L134.0 195.0 L138.0 197.1 L142.2 198.9 L146.5 200.2 L151.0 201.2 L155.5 201.8 L160.0 202.0 L164.5 201.8 L169.0 201.2 L173.5 200.2 L177.8 198.9 L182.0 197.1 L186.0 195.0 L189.8 192.6 L193.4 189.8 L196.8 186.8 L199.8 183.4 L202.6 179.8 L205.0 176.0 L207.1 172.0 L208.9 167.8 L210.2 163.5 L211.2 159.0 L211.8 154.5 L212.0 150.0 L211.8 145.5 L211.2 141.0 Z"/>
+<path class="pig" d="M221.7 143.5 L222.0 148.7 L221.9 153.9 L221.3 159.1 L220.4 164.2 L219.0 169.2 L217.2 174.0 L214.9 178.7 L212.3 183.2 L209.4 187.5 L206.1 191.5 L202.4 195.2 L198.5 198.6 L194.3 201.6 L189.9 204.3 L185.2 206.6 L180.4 208.6 L175.4 210.1 L170.3 211.1 L165.2 211.8 L160.0 212.0 L154.8 211.8 L149.7 211.1 L144.6 210.1 L139.6 208.6 L134.8 206.6 L130.1 204.3 L125.7 201.6 L121.5 198.6 L117.6 195.2 L113.9 191.5 L110.6 187.5 L107.7 183.2 L105.1 178.7 L102.8 174.0 L101.0 169.2 L99.6 164.2 L98.7 159.1 L98.1 153.9 L98.0 148.7 L98.3 143.5 L105.3 144.3 L105.0 148.8 L105.1 153.5 L105.6 158.0 L106.5 162.6 L107.7 167.0 L109.3 171.3 L111.3 175.5 L113.6 179.5 L116.2 183.3 L119.1 186.8 L122.3 190.1 L125.8 193.1 L129.6 195.8 L133.5 198.2 L137.6 200.2 L141.9 201.9 L146.3 203.3 L150.8 204.2 L155.4 204.8 L160.0 205.0 L164.6 204.8 L169.2 204.2 L173.7 203.3 L178.1 201.9 L182.4 200.2 L186.5 198.2 L190.4 195.8 L194.2 193.1 L197.7 190.1 L200.9 186.8 L203.8 183.3 L206.4 179.5 L208.7 175.5 L210.7 171.3 L212.3 167.0 L213.5 162.6 L214.4 158.0 L214.9 153.5 L215.0 148.8 L214.7 144.3 Z"/>
+<path class="rh" d="M116.7 175.0 L134.0 165.0"/><path class="cell" d="M134.0 165.0 C134.0 135.0 84.0 122.0 84.0 101.0"/><circle class="cellf" cx="84" cy="92" r="9"/><path class="cell" d="M84 83 L46.0 68"/>
+<path class="rh" d="M135.0 193.3 L145.0 176.0"/><path class="cell" d="M145.0 176.0 C145.0 146.0 116.0 100.0 116.0 79.0"/><circle class="cellf" cx="116" cy="70" r="9"/><path class="cell" d="M116 61 L94.0 46"/>
+<path class="rh" d="M160.0 200.0 L160.0 180.0"/><path class="cell" d="M160.0 180.0 C160.0 150.0 160.0 92.0 160.0 71.0"/><circle class="cellf" cx="160" cy="62" r="9"/><path class="cell" d="M160 53 L160.0 38"/>
+<path class="rh" d="M185.0 193.3 L175.0 176.0"/><path class="cell" d="M175.0 176.0 C175.0 146.0 204.0 100.0 204.0 79.0"/><circle class="cellf" cx="204" cy="70" r="9"/><path class="cell" d="M204 61 L226.0 46"/>
+<path class="rh" d="M203.3 175.0 L186.0 165.0"/><path class="cell" d="M186.0 165.0 C186.0 135.0 236.0 122.0 236.0 101.0"/><circle class="cellf" cx="236" cy="92" r="9"/><path class="cell" d="M236 83 L274.0 68"/>
+</g>
+
+<!-- 4. Pinhole eye of Nautilus, from Fig. 4.7 -->
+<g transform="translate(-436.6 301.2) scale(1.1)">
+<path class="light" d="M500 6 L500 34"/><path class="lighthead" d="M495.5 27 L500 34 L504.5 27"/>
+<path class="light" d="M512 6 L512 34"/><path class="lighthead" d="M507.5 27 L512 34 L516.5 27"/>
+<path class="pigs" d="M514.8 42.7 L521.6 44.2 L528.1 46.5 L534.3 49.7 L540.1 53.6 L545.3 58.1 L550.0 63.3 L553.9 69.1 L557.2 75.2 L559.6 81.7 L561.2 88.5 L561.9 95.4 L561.8 102.4 L560.9 109.3 L559.0 116.0 L556.4 122.4 L553.0 128.5 L548.8 134.1 L544.0 139.1 L538.6 143.5 L532.7 147.2 L526.4 150.1 L519.8 152.3 L512.9 153.6 L506.0 154.0 L499.1 153.6 L492.2 152.3 L485.6 150.1 L479.3 147.2 L473.4 143.5 L468.0 139.1 L463.2 134.1 L459.0 128.5 L455.6 122.4 L453.0 116.0 L451.1 109.3 L450.2 102.4 L450.1 95.4 L450.8 88.5 L452.4 81.7 L454.8 75.2 L458.1 69.1 L462.0 63.3 L466.7 58.1 L471.9 53.6 L477.7 49.7 L483.9 46.5 L490.4 44.2 L497.2 42.7"/>
+<path class="ret" d="M515.3 49.9 L521.2 51.4 L526.8 53.6 L532.1 56.5 L536.9 60.0 L541.4 64.1 L545.3 68.7 L548.6 73.7 L551.2 79.1 L553.2 84.8 L554.5 90.7 L555.0 96.7 L554.8 102.7 L553.8 108.6 L552.2 114.4 L549.8 120.0 L546.8 125.2 L543.1 130.0 L538.9 134.3 L534.3 138.0 L529.1 141.2 L523.7 143.7 L517.9 145.5 L512.0 146.6 L506.0 147.0 L500.0 146.6 L494.1 145.5 L488.3 143.7 L482.9 141.2 L477.7 138.0 L473.1 134.3 L468.9 130.0 L465.2 125.2 L462.2 120.0 L459.8 114.4 L458.2 108.6 L457.2 102.7 L457.0 96.7 L457.5 90.7 L458.8 84.8 L460.8 79.1 L463.4 73.7 L466.7 68.7 L470.6 64.1 L475.1 60.0 L479.9 56.5 L485.2 53.6 L490.8 51.4 L496.7 49.9"/>
+</g>
+
+<!-- 5. Under-focused lens eye of a box jellyfish, from Fig. 4.1 panel (d) -->
+<g transform="translate(240 296.5) scale(0.75)">
+<path class="light" d="M140 18 L140 48"/><path class="lighthead" d="M135 40 L140 48 L145 40"/>
+<path class="light" d="M160 18 L160 48"/><path class="lighthead" d="M155 40 L160 48 L165 40"/>
+<path class="light" d="M180 18 L180 48"/><path class="lighthead" d="M175 40 L180 48 L185 40"/>
+<path class="cell" d="M229.3 110.0 L233.1 117.5 L236.1 125.3 L238.3 133.4 L239.6 141.6 L240.0 150.0 L239.6 158.4 L238.3 166.6 L236.1 174.7 L233.1 182.5 L229.3 190.0 L224.7 197.0 L219.5 203.5 L213.5 209.5 L207.0 214.7 L200.0 219.3 L192.5 223.1 L184.7 226.1 L176.6 228.3 L168.4 229.6 L160.0 230.0 L151.6 229.6 L143.4 228.3 L135.3 226.1 L127.5 223.1 L120.0 219.3 L113.0 214.7 L106.5 209.5 L100.5 203.5 L95.3 197.0 L90.7 190.0 L86.9 182.5 L83.9 174.7 L81.7 166.6 L80.4 158.4 L80.0 150.0 L80.4 141.6 L81.7 133.4 L83.9 125.3 L86.9 117.5 L90.7 110.0 L116.7 125.0 L114.3 129.7 L112.4 134.5 L111.1 139.6 L110.3 144.8 L110.0 150.0 L110.3 155.2 L111.1 160.4 L112.4 165.5 L114.3 170.3 L116.7 175.0 L119.5 179.4 L122.8 183.5 L126.5 187.2 L130.6 190.5 L135.0 193.3 L139.7 195.7 L144.5 197.6 L149.6 198.9 L154.8 199.7 L160.0 200.0 L165.2 199.7 L170.4 198.9 L175.5 197.6 L180.3 195.7 L185.0 193.3 L189.4 190.5 L193.5 187.2 L197.2 183.5 L200.5 179.4 L203.3 175.0 L205.7 170.3 L207.6 165.5 L208.9 160.4 L209.7 155.2 L210.0 150.0 L209.7 144.8 L208.9 139.6 L207.6 134.5 L205.7 129.7 L203.3 125.0 Z"/>
+<path class="pig" d="M219.3 121.1 L221.9 127.2 L223.9 133.6 L225.3 140.1 L225.9 146.8 L225.9 153.5 L225.2 160.1 L223.9 166.6 L221.9 173.0 L219.2 179.1 L216.0 185.0 L212.2 190.5 L207.8 195.5 L203.0 200.1 L197.7 204.2 L192.0 207.7 L186.0 210.7 L179.7 213.0 L173.3 214.7 L166.7 215.7 L160.0 216.0 L153.3 215.7 L146.7 214.7 L140.3 213.0 L134.0 210.7 L128.0 207.7 L122.3 204.2 L117.0 200.1 L112.2 195.5 L107.8 190.5 L104.0 185.0 L100.8 179.1 L98.1 173.0 L96.1 166.6 L94.8 160.1 L94.1 153.5 L94.1 146.8 L94.7 140.1 L96.1 133.6 L98.1 127.2 L100.7 121.1 L107.9 124.6 L105.6 130.0 L103.8 135.6 L102.7 141.3 L102.1 147.2 L102.1 153.0 L102.7 158.9 L103.9 164.6 L105.6 170.2 L108.0 175.6 L110.8 180.7 L114.2 185.5 L118.0 190.0 L122.3 194.0 L126.9 197.6 L131.9 200.7 L137.2 203.3 L142.7 205.3 L148.3 206.8 L154.1 207.7 L160.0 208.0 L165.9 207.7 L171.7 206.8 L177.3 205.3 L182.8 203.3 L188.1 200.7 L193.1 197.6 L197.7 194.0 L202.0 190.0 L205.8 185.5 L209.2 180.7 L212.0 175.6 L214.4 170.2 L216.1 164.6 L217.3 158.9 L217.9 153.0 L217.9 147.2 L217.3 141.3 L216.2 135.6 L214.4 130.0 L212.1 124.6 Z"/>
+<path class="rl" d="M208.4 128.4 L210.3 133.4 L211.7 138.4 L212.6 143.6 L213.0 148.9 L212.8 154.2 L212.2 159.4 L211.0 164.5 L209.3 169.5 L207.1 174.3 L204.4 178.9 L201.4 183.1 L197.9 187.1 L194.0 190.7 L189.8 193.8 L185.3 196.6 L180.5 198.9 L175.6 200.7 L170.5 202.0 L165.3 202.7 L160.0 203.0 L154.7 202.7 L149.5 202.0 L144.4 200.7 L139.5 198.9 L134.7 196.6 L130.2 193.8 L126.0 190.7 L122.1 187.1 L118.6 183.1 L115.6 178.9 L112.9 174.3 L110.7 169.5 L109.0 164.5 L107.8 159.4 L107.2 154.2 L107.0 148.9 L107.4 143.6 L108.3 138.4 L109.7 133.4 L111.6 128.4"/>
+<path class="thin" d="M207.0 132.9 L235.2 122.6"/><path class="thin" d="M210.0 150.0 L240.0 150.0"/><path class="thin" d="M207.0 167.1 L235.2 177.4"/><path class="thin" d="M198.3 182.1 L221.3 201.4"/><path class="thin" d="M185.0 193.3 L200.0 219.3"/><path class="thin" d="M168.7 199.2 L173.9 228.8"/><path class="thin" d="M151.3 199.2 L146.1 228.8"/><path class="thin" d="M135.0 193.3 L120.0 219.3"/><path class="thin" d="M121.7 182.1 L98.7 201.4"/><path class="thin" d="M113.0 167.1 L84.8 177.4"/><path class="thin" d="M110.0 150.0 L80.0 150.0"/><path class="thin" d="M113.0 132.9 L84.8 122.6"/>
+<circle class="lens" cx="160" cy="144" r="34"/>
+<path class="iris" d="M90.0 110.0 L124.0 100.0"/><path class="iris" d="M230.0 110.0 L196.0 100.0"/>
+<path class="cell" d="M93.2 110.3 L96.0 108.0 L98.9 105.9 L101.8 103.8 L104.9 101.8 L108.0 99.9 L111.2 98.2 L114.4 96.5 L117.7 95.0 L121.0 93.6 L124.4 92.3 L127.9 91.1 L131.3 90.0 L134.8 89.1 L138.4 88.3 L141.9 87.6 L145.5 87.0 L149.1 86.6 L152.7 86.3 L156.4 86.1 L160.0 86.0 L163.6 86.1 L167.3 86.3 L170.9 86.6 L174.5 87.0 L178.1 87.6 L181.6 88.3 L185.2 89.1 L188.7 90.0 L192.1 91.1 L195.6 92.3 L199.0 93.6 L202.3 95.0 L205.6 96.5 L208.8 98.2 L212.0 99.9 L215.1 101.8 L218.2 103.8 L221.1 105.9 L224.0 108.0 L226.8 110.3"/>
+</g>
+
+<!-- 6. Focused camera eye: Nilsson & Pelger 1994, fig. 2, stage 8 (spherical lens at the retina's centre of curvature, focal length = lens-to-retina distance) -->
+<g transform="translate(440 300)">
+<path class="pigs" d="M144.0 79.2 A58 58 0 1 0 176.0 79.2"/>
+<path class="ret" d="M145.9 86.0 A51 51 0 1 0 174.1 86.0"/>
+<path class="iris" d="M144 80 L153 86"/><path class="iris" d="M176 80 L167 86"/>
+<circle class="lens" cx="160" cy="135" r="18"/>
+<circle class="lens2" cx="160" cy="135" r="12"/>
+<circle class="lens2" cx="160" cy="135" r="6"/>
+<path class="light" d="M149 20 L149 124 L160 186"/>
+<path class="light" d="M160 20 L160 186"/>
+<path class="light" d="M171 20 L171 124 L160 186"/>
+<path class="lighthead" d="M145 40 L149 48 L153 40"/><path class="lighthead" d="M156 40 L160 48 L164 40"/><path class="lighthead" d="M167 40 L171 48 L175 40"/>
+</g>
+
+<!-- Panel labels -->
+<g>
+<text class="num" x="16" y="228">1</text><text class="eye" x="30" y="228">Single-cell ocellus</text>
+<text class="ani" x="30" y="245">Box jellyfish larva</text>
+<text class="job" x="30" y="262">Steers by light with no</text><text class="job" x="30" y="278">nervous system</text>
+
+<text class="num" x="256" y="228">2</text><text class="eye" x="270" y="228">Two-cell eyespot</text>
+<text class="ani" x="270" y="245">Ragworm larva</text>
+<text class="job" x="270" y="262">Steers towards light</text>
+
+<text class="num" x="496" y="228">3</text><text class="eye" x="510" y="228">Pigment cup</text>
+<text class="ani" x="510" y="245">Planarian flatworm</text>
+<text class="job" x="510" y="262">About 35° per receptor</text>
+
+<text class="num" x="16" y="528">4</text><text class="eye" x="30" y="528">Pinhole, no lens</text>
+<text class="ani" x="30" y="545" style="font-style:italic">Nautilus</text>
+<text class="job" x="30" y="562">Separates objects</text><text class="job" x="30" y="578">5.5°–11.25° apart</text>
+
+<text class="num" x="256" y="528">5</text><text class="eye" x="270" y="528">Under-focused lens</text>
+<text class="ani" x="270" y="545">Box jellyfish</text>
+<text class="job" x="270" y="562">Steers round mangrove roots</text>
+
+<text class="num" x="496" y="528">6</text><text class="eye" x="510" y="528">Focused camera eye</text>
+<text class="ani" x="510" y="545">Octopus, fish</text>
+<text class="job" x="510" y="562">Sharp image on the retina</text>
+</g>
+
+<path class="rule" d="M240 10 L240 290 M480 10 L480 290 M240 310 L240 590 M480 310 L480 590 M10 300 L710 300"/>
+<text class="tag" x="704" y="612" text-anchor="end">Numbered from simplest to most complex · not to scale</text>
+</svg>

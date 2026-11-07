@@ -57,6 +57,7 @@ const claims = defineCollection({
     attribution: z.string(),
     short_answer: z.string(), // 40–80 words
     evidence: z.array(link).default([]),
+    figure_prefix: z.string().optional(), // page-local figures: ":::figure 1" -> src/figures/claims/<prefix>-1.svg
     first_published: date,
     last_revised: date,
     status,

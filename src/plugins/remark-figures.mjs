@@ -44,10 +44,8 @@ function creditNodes(entry) {
 // Chapter figures: 4.2 -> src/figures/chapter-4/4-2.svg. Atlas figures: A7.1 -> src/figures/atlas-7/A7-1.svg.
 const folderFor = (key) => (/^\d+$/.test(key) ? `chapter-${key}` : `atlas-${key.replace(/\D/g, '')}`);
 
-function plateFor(num, chapter, n, entry, caption, problems) {
-  const folder = folderFor(chapter);
+function plateFor(num, folder, base, entry, caption, problems) {
   const dir = join(ROOT, 'src/figures', folder);
-  const base = `${chapter}-${n}`;
   const alt = entry?.alt || caption;
   if (entry && !entry.alt) problems.push(`figure ${num}: ledger entry has no alt text`);
 
@@ -89,13 +87,20 @@ export function remarkFigures() {
     for (let i = 0; i < kids.length; i++) {
       const node = kids[i];
       const first = node.type === 'paragraph' ? node.children[0] : null;
-      const open = first?.type === 'text' && first.value.match(/^:::figure[ \t]+([A-Za-z]?\d+)\.(\d+)[ \t]*(?:\n|$)/);
+      // Chapter/Atlas figures are "4.2" / "A7.1". Pages without a chapter number
+      // (claims) use page-local numbers, ":::figure 1", with a figure_prefix in front matter.
+      const open = first?.type === 'text' && first.value.match(/^:::figure[ \t]+(?:([A-Za-z]?\d+)\.)?(\d+)[ \t]*(?:\n|$)/);
       if (!open) {
         out.push(node);
         continue;
       }
       const [prefix, chapter, n] = open;
-      const num = `${chapter}.${n}`;
+      const local = chapter === undefined;
+      const pagePrefix = frontmatter(file).figure_prefix;
+      if (local && !pagePrefix) problems.push(`figure ${n}: page-local figure needs figure_prefix in front matter`);
+      const num = local ? n : `${chapter}.${n}`;
+      const key = local ? `${pagePrefix}-${n}` : `${chapter}-${n}`;
+      const folder = local ? 'claims' : folderFor(chapter);
       first.value = first.value.slice(prefix.length);
 
       // Caption = inline content of the opening paragraph, up to the closing ":::".
@@ -121,13 +126,13 @@ export function remarkFigures() {
       caption = caption.filter((c) => !(c.type === 'text' && c.value === ''));
 
       const captionText = toString({ type: 'paragraph', children: caption }).trim();
-      const entry = ledger.find((e) => e.id === `fig-${chapter}-${n}`);
-      if (!entry) problems.push(`figure ${num}: no credit line (add fig-${chapter}-${n} to image-credits.json)`);
+      const entry = ledger.find((e) => e.id === `fig-${key}`);
+      if (!entry) problems.push(`figure ${num}: no credit line (add fig-${key} to image-credits.json)`);
 
-      const plate = plateFor(num, chapter, n, entry, captionText, problems);
+      const plate = plateFor(num, folder, key, entry, captionText, problems);
       const credit = entry ? creditNodes(entry) : [text('Credit to be added.')];
       out.push(
-        el('figure', { className: ['eb-figure'], id: `fig-${chapter}-${n}` }, [
+        el('figure', { className: ['eb-figure'], id: `fig-${local ? n : key}` }, [
           el('div', { className: ['eb-figure__plate', `eb-figure__plate--${plate.kind}`] }, [plate.node]),
           el('figcaption', {}, [
             el('span', { className: ['eb-figure__num'] }, [text(`FIG. ${num}`)]),
