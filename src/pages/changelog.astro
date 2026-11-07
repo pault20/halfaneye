@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { liveRoutes, formatDate, isoDate } from '../lib/content';
+import { changelogEntries } from '../lib/bibliography';
+const entries = await changelogEntries();
+const routes = await liveRoutes();
+---
+<Layout title="Changelog" description="Every page published or revised in Half an Eye, newest first." searchable={false}>
+  <div class="wrap wrap--narrow">
+    <div class="page-head">
+      <span class="eyebrow">Newest first</span>
+      <h1>Changelog</h1>
+      <p>Every page published or revised, so a citation can always be checked against the version it cited.</p>
+    </div>
+    {entries.length === 0 ? <p>Nothing is published yet.</p> : (
+      <ol class="changelog">
+        {entries.map((e) => (
+          <li>
+            <time datetime={isoDate(e.data.date)}>{formatDate(e.data.date)}</time>
+            <div>
+              <p class="changelog__title">
+                <span class="label-caps">{e.data.kind === 'published' ? 'Published' : 'Revised'}</span>
+                {routes.has(e.data.page) ? <a href={e.data.page}>{e.data.title}</a> : e.data.title}
+              </p>
+              <p class="changelog__what">{e.data.summary}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    )}
+  </div>
+</Layout>

@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { glossaryTerms } from '../lib/bibliography';
+const terms = await glossaryTerms();
+---
+<Layout title="Glossary" description="Plain definitions of the technical terms used in Half an Eye. The first use of each term in a page links here.">
+  <div class="wrap wrap--narrow">
+    <div class="page-head">
+      <span class="eyebrow">{terms.length} {terms.length === 1 ? 'term' : 'terms'}</span>
+      <h1>Glossary</h1>
+      <p>Plain definitions of the technical terms used in the book. The first use of each term on a page links here.</p>
+    </div>
+    {terms.length === 0 ? <p>No terms are published yet.</p> : (
+      <dl class="gloss-list">
+        {terms.map((t) => (
+          <div id={t.id} class="gloss-list__item">
+            <dt>{t.data.term}</dt>
+            <dd>{t.data.definition}</dd>
+          </div>
+        ))}
+      </dl>
+    )}
+  </div>
+</Layout>

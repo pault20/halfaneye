@@ -1,0 +1,35 @@
+# Glossary terms. The first use of each term on a page links here.
+# status: draft terms appear on previews only. Sample definitions for build testing; not yet fact-checked.
+- id: filter-feeder
+  term: Filter feeder
+  aliases: [filter-feeding, filter feeding]
+  definition: An animal that feeds by straining small food particles out of the water around it.
+  status: draft
+- id: guanine
+  term: Guanine
+  definition: A molecule best known as one of the four bases of DNA. Some animals also make it as flat crystals that reflect light, as in the mirror of a scallop's eye.
+  status: draft
+- id: lens
+  term: Lens
+  definition: A transparent structure in an eye that bends light so that it focuses on the retina.
+  status: draft
+- id: metamorphosis
+  term: Metamorphosis
+  definition: A change of body form during an animal's life, such as a larva becoming an adult.
+  status: draft
+- id: photoreceptor
+  term: Photoreceptor
+  definition: A cell that detects light. It holds a light-sensitive pigment and turns light into an electrical signal.
+  status: draft
+- id: pigment-cell
+  term: Pigment cell
+  definition: A cell that holds dark pigment. In a simple eye it shades a photoreceptor from one side, so the animal can tell which way the light comes from.
+  status: draft
+- id: pineal-gland
+  term: Pineal gland
+  definition: A small gland in the middle of the vertebrate brain. It makes melatonin and helps set the daily rhythm of sleep and waking.
+  status: draft
+- id: retina
+  term: Retina
+  definition: The light-sensitive layer of an eye, made of photoreceptors and the nerve cells that first process their signals.
+  status: draft

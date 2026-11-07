@@ -2,6 +2,7 @@
 import { render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import ClaimResponse from '../../components/ClaimResponse.astro';
+import CiteBox from '../../components/CiteBox.astro';
 import { visibleClaims, formatDate, isoDate } from '../../lib/content';
 
 export async function getStaticPaths() {
@@ -14,7 +15,7 @@ const all = await visibleClaims();
 const position = all.findIndex((c) => c.id === entry.id) + 1;
 const isDraft = d.status === 'draft';
 ---
-<Layout title={d.title} description={d.short_answer.slice(0, 200)} section="claims" noindex={isDraft}>
+<Layout title={d.title} description={d.short_answer.slice(0, 200)} section="claims" noindex={isDraft} og={`claims-${entry.id}`} published={!isDraft}>
   <div class="wrap wrap--claim">
     <div class="claim-meta">
       <a class="back" href="/claims/">← Claims and responses</a>
@@ -31,5 +32,6 @@ const isDraft = d.status === 'draft';
     )}
     <ClaimResponse claim={d.claim} attribution={d.attribution} answer={d.short_answer} evidence={d.evidence} />
     <div class="eb-text"><Content /></div>
+    <div class="claim-wrap"><CiteBox title={d.title} lastRevised={d.last_revised} /></div>
   </div>
 </Layout>

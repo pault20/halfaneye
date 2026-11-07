@@ -7,6 +7,8 @@ Source for [halfaneye.org](https://halfaneye.org): an open book on the evolution
 - Figures: `src/figures/chapter-N/N-M.svg|jpg|webp`, credited through `src/content/credits/image-credits.json`.
 - `src/styles/tokens.css` and `bundle.css` are generated from `docs/brief/design-system/` by `npm run sync:design` (runs automatically before dev and build).
 
+Build guards (a `published` page fails the build if it has an unmatched footnote, `[to confirm]`, `[Title to confirm]`, `p.[`, `TODO`, `unverified`, a figure with no image or credit, an image with no alt text, or a broken internal link). Search is Pagefind, indexed after the build, so it does not exist under `npm run dev`.
+
 ```bash
 npm install
 npm run dev

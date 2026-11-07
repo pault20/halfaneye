@@ -12,13 +12,17 @@ interface Props {
   crumb?: string; // shown in the top bar, e.g. "6 · Our eyes"
   progress?: boolean; // reading-progress bar (chapters)
   noindex?: boolean;
-  section?: 'contents' | 'atlas' | 'claims';
+  section?: 'contents' | 'atlas' | 'claims' | 'search';
+  og?: string; // Open Graph image slug, see src/pages/og/[slug].png.ts
+  published?: boolean; // checked by scripts/check-links.mjs: only published pages must have no broken links
+  searchable?: boolean; // included in the Pagefind index
 }
-const { title, description, crumb, progress = false, noindex = false, section } = Astro.props;
+const { title, description, crumb, progress = false, noindex = false, section, og = 'default', published = false, searchable = true } = Astro.props;
 const hasToc = Astro.slots.has('toc');
 const isHome = Astro.url.pathname === '/';
 const fullTitle = isHome ? title : `${title} · Half an Eye`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(`/og/${og}.png`, Astro.site).href;
 const analytics = import.meta.env.PROD && !!process.env.VERCEL;
 ---
 <!doctype html>
@@ -36,7 +40,13 @@ const analytics = import.meta.env.PROD && !!process.env.VERCEL;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${title}: Half an Eye, an open book on the evolution of the eye`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="page-status" content={published ? 'published' : 'draft'} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <script is:inline>document.documentElement.classList.add('js');</script>
     {analytics && <script defer src="/_vercel/insights/script.js"></script>}
@@ -47,11 +57,11 @@ const analytics = import.meta.env.PROD && !!process.env.VERCEL;
     {hasToc ? (
       <div class="shell">
         <div class="toc-wrap" id="toc-panel"><slot name="toc" /></div>
-        <main id="main" class="page"><slot /></main>
+        <main id="main" class="page" data-pagefind-body={searchable ? "" : undefined}><slot /></main>
       </div>
       <div class="toc-backdrop" data-toc-backdrop></div>
     ) : (
-      <main id="main"><slot /></main>
+      <main id="main" data-pagefind-body={searchable ? "" : undefined}><slot /></main>
     )}
     <Footer />
     <script>

@@ -1,5 +1,5 @@
 import { defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 // Dates are written "2027-01-12" in front matter and shown as "12 Jan 2027".
@@ -64,4 +64,26 @@ const claims = defineCollection({
   }),
 });
 
-export const collections = { chapters, atlas, claims };
+const glossary = defineCollection({
+  loader: file('./src/content/glossary/glossary.yaml'),
+  schema: z.object({
+    term: z.string(),
+    aliases: z.array(z.string()).default([]),
+    definition: z.string(),
+    status,
+  }),
+});
+
+const changelog = defineCollection({
+  loader: file('./src/content/changelog/changelog.yaml'),
+  schema: z.object({
+    date: z.coerce.date(),
+    page: z.string(), // internal URL of the page that changed
+    title: z.string(),
+    kind: z.enum(['published', 'revised']),
+    summary: z.string(),
+    status,
+  }),
+});
+
+export const collections = { chapters, atlas, claims, glossary, changelog };
