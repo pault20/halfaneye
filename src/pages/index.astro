@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { contents, visibleChapters, chapterUrl } from '../lib/content';
+
+const parts = await contents();
+const first = (await visibleChapters())[0];
+const roman = ['I', 'II', 'III', 'IV'];
+---
+<Layout title="Half an Eye" description="An open book on the evolution of the eye. Every stage between a light-sensitive patch and the eye you are reading this with is still in use somewhere in the animal kingdom.">
+  <section class="hero">
+    <div class="hero__text">
+      <span class="hero__eyebrow">An open book on the evolution of the eye</span>
+      <h1>Half an Eye</h1>
+      <p class="hero__lede">Every stage between a light-sensitive patch and the eye you are reading this with is still in use somewhere in the animal kingdom. This book walks through them, with the evidence for each.</p>
+      <div class="hero__actions">
+        {first && <a class="btn" href={chapterUrl(first.data.chapter)}>Start reading</a>}
+        <a href="#contents">See the contents</a>
+      </div>
+    </div>
+    <figure class="hero__art">
+      <svg viewBox="0 0 480 360" role="img" aria-label="Four colour bands for the four parts of the book, with an eye drawn over them">
+        <rect x="0" y="0" width="96" height="360" fill="var(--part-1)" />
+        <rect x="96" y="0" width="144" height="360" fill="var(--part-2)" />
+        <rect x="240" y="0" width="112" height="360" fill="var(--part-3)" />
+        <rect x="352" y="0" width="128" height="360" fill="var(--part-4)" />
+        <circle cx="240" cy="180" r="120" fill="var(--ink)" />
+        <circle cx="240" cy="180" r="40" fill="var(--accent)" />
+        <path d="M188 150 A60 60 0 0 1 292 150" fill="none" stroke="var(--paper)" stroke-width="2" />
+        <path d="M170 140 A80 80 0 0 1 310 140" fill="none" stroke="var(--paper)" stroke-width="2" />
+        <path d="M153 130 A100 100 0 0 1 327 130" fill="none" stroke="var(--paper)" stroke-width="2" />
+      </svg>
+      <figcaption>420 nm · 498 nm · 534 nm · 564 nm: the peak sensitivities of the four kinds of human photoreceptor, one for each part of the book.</figcaption>
+    </figure>
+  </section>
+
+  <section id="contents" class="contents" aria-labelledby="contents-h">
+    <div class="contents__inner">
+      <h2 id="contents-h">Contents</h2>
+      <div class="contents__grid">
+        {parts.map((part) => (
+          <div class={`contents__part eb-p${part.n}`}>
+            <span class="eb-part">Part {roman[part.n - 1]} <span class="eb-part__nm">{part.nm} nm</span></span>
+            <h3>{part.title}</h3>
+            <ol class="contents__list">
+              {part.items.map((item) => (
+                <li class:list={{ 'is-soon': !item.href }}>
+                  <span class="contents__n">{item.n}</span>
+                  {item.href ? <a href={item.href}>{item.title}</a> : <>{item.title} <span class="contents__soon">· coming</span></>}
+                </li>
+              ))}
+            </ol>
+          </div>
+        ))}
+      </div>
+      <p class="contents__note">Chapters are published one at a time, as each is checked against its sources.</p>
+    </div>
+  </section>
+</Layout>

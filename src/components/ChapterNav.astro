@@ -1,0 +1,9 @@
+---
+interface Link { dir: string; title: string; href: string }
+interface Props { prev: Link; next: Link }
+const { prev, next } = Astro.props;
+---
+<nav class="eb-pager" aria-label="Chapter">
+  <a href={prev.href} rel="prev"><span class="eb-pager__dir">{prev.dir}</span><span class="eb-pager__title">{prev.title}</span></a>
+  <a href={next.href} rel="next"><span class="eb-pager__dir">{next.dir}</span><span class="eb-pager__title">{next.title}</span></a>
+</nav>
