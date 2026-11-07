@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { credits, figureLabel } from '../lib/credits';
+const items = await credits();
+---
+<Layout title="Figure and media credits" description="Author, licence and source for every image in Half an Eye, and the figure that uses it." searchable={false}>
+  <div class="wrap wrap--narrow">
+    <div class="page-head">
+      <span class="eyebrow">{items.length} {items.length === 1 ? 'image' : 'images'}</span>
+      <h1>Figure and media credits</h1>
+      <p>Every image in the book, with its author, licence and source. Original drawings are by Half an Eye under CC BY 4.0; each photo keeps its own licence.</p>
+    </div>
+    {items.length === 0 ? <p>No pages with images are published yet.</p> : (
+      <ul class="credits">
+        {items.map((c) => (
+          <li id={c.id}>
+            <h2>{c.title}</h2>
+            <dl>
+              <dt>Used in</dt><dd><a href={`${c.url}#${c.id}`}>{figureLabel(c.id)}</a></dd>
+              <dt>Author</dt><dd>{c.author}</dd>
+              <dt>Licence</dt><dd>{c.licence}</dd>
+              <dt>Source</dt><dd>{/^half an eye$/i.test(c.author) ? (c.after ? `Redrawn after ${c.after}` : 'Original drawing') : <a href={c.source_url}>{c.source_url.replace(/^https?:\/\//, '')}</a>}</dd>
+              {c.changes && <><dt>Changes</dt><dd>{c.changes}</dd></>}
+              {c.retrieved && <><dt>Retrieved</dt><dd><time datetime={c.retrieved}>{c.retrieved}</time></dd></>}
+            </dl>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</Layout>

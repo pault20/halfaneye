@@ -1,0 +1,16 @@
+# Newest entries are sorted to the top by date. page is an internal URL.
+# Sample entries for build testing; status: draft entries appear on previews only.
+- id: 2026-11-07-chapter-6
+  date: 2026-11-07
+  page: /chapter/6/
+  title: "Chapter 6: Our eyes"
+  kind: published
+  summary: Sample chapter added to test the chapter template.
+  status: draft
+- id: 2026-11-07-great-scallop
+  date: 2026-11-07
+  page: /atlas/great-scallop/
+  title: Great scallop
+  kind: published
+  summary: Sample Atlas entry added to test the Atlas template.
+  status: draft

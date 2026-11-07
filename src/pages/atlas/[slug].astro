@@ -1,6 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import CiteBox from '../../components/CiteBox.astro';
 import { visibleAtlas, liveRoutes, isLive } from '../../lib/content';
 
 export async function getStaticPaths() {
@@ -12,7 +13,7 @@ const d = entry.data;
 const routes = await liveRoutes();
 const isDraft = d.status === 'draft';
 ---
-<Layout title={`${d.common_name} (${d.latin_name})`} description={d.standfirst} section="atlas" noindex={isDraft}>
+<Layout title={`${d.common_name} (${d.latin_name})`} description={d.standfirst} section="atlas" noindex={isDraft} og={`atlas-${entry.id}`} published={!isDraft}>
   <div class="wrap">
     <a class="back" href="/atlas/">← Atlas of Eyes</a>
     {(isDraft || d.sample) && (
@@ -53,5 +54,6 @@ const isDraft = d.status === 'draft';
     <div class="entry-body">
       <div class="eb-text"><Content /></div>
     </div>
+    <div class="entry-body"><CiteBox title={`${d.common_name} (${d.latin_name}), Atlas of Eyes`} lastRevised={d.last_revised} /></div>
   </div>
 </Layout>

@@ -4,6 +4,8 @@ import { remarkEditorsNotes } from './src/plugins/remark-editors-notes.mjs';
 import { remarkSidenotes } from './src/plugins/remark-sidenotes.mjs';
 import { remarkFigures } from './src/plugins/remark-figures.mjs';
 import { remarkKeyEvidence } from './src/plugins/remark-key-evidence.mjs';
+import { remarkGuards } from './src/plugins/remark-guards.mjs';
+import { remarkGlossary } from './src/plugins/remark-glossary.mjs';
 import { figuresAssets } from './src/plugins/figures-assets.mjs';
 
 export default defineConfig({
@@ -15,11 +17,12 @@ export default defineConfig({
   markdown: {
     // Astro 7 defaults to a different Markdown engine; the footnote, figure and
     // editor's-notes rules are remark plugins, so use the remark processor.
-    // Order matters: strip editor's notes first, then figures, then footnotes.
+    // Order matters: strip editor's notes, run guards on what will publish, then
+    // figures, footnotes, and last the glossary links.
     processor: unified({
       gfm: true,
       smartypants: true,
-      remarkPlugins: [remarkEditorsNotes, remarkFigures, remarkKeyEvidence, remarkSidenotes],
+      remarkPlugins: [remarkEditorsNotes, remarkGuards, remarkFigures, remarkKeyEvidence, remarkSidenotes, remarkGlossary],
     }),
   },
 });

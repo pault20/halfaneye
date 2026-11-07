@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { bibliography } from '../lib/bibliography';
+const entries = await bibliography();
+---
+<Layout title="Bibliography" description="Every source cited in Half an Eye, sorted by first author, with the pages that cite each one.">
+  <div class="wrap wrap--narrow">
+    <div class="page-head">
+      <span class="eyebrow">{entries.length} {entries.length === 1 ? 'source' : 'sources'}</span>
+      <h1>Bibliography</h1>
+      <p>Every source cited in a footnote, sorted by first author. Each entry lists the pages that cite it.</p>
+    </div>
+    {entries.length === 0 ? <p>No pages are published yet, so there are no sources to list.</p> : (
+      <ol class="bib">
+        {entries.map((e) => (
+          <li>
+            <p class="bib__text"><Fragment set:html={e.html} />{e.doi && <> <a class="bib__doi" href={`https://doi.org/${e.doi}`}>doi:{e.doi}</a></>}</p>
+            <p class="bib__cited">Cited in: {e.pages.map((p, i) => <>{i > 0 && ', '}<a href={p.url}>{p.title}</a></>)}</p>
+          </li>
+        ))}
+      </ol>
+    )}
+  </div>
+</Layout>

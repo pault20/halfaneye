@@ -1,0 +1,35 @@
+---
+import { formatDate } from '../lib/content';
+interface Props { title: string; lastRevised?: Date | null }
+const { title, lastRevised } = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const revised = lastRevised ? `last revised ${formatDate(lastRevised)}` : 'draft, not yet published';
+const citation = `“${title}.” Half an Eye. ${url} (${revised}).`;
+---
+<aside class="cite" aria-labelledby="cite-h" data-pagefind-ignore>
+  <h2 id="cite-h">Cite this page</h2>
+  <p class="cite__text" data-cite-text>{citation}</p>
+  <button type="button" class="cite__copy" data-cite-copy hidden>Copy citation</button>
+  <span class="cite__done" role="status" data-cite-done></span>
+</aside>
+<script>
+  const text = document.querySelector<HTMLElement>('[data-cite-text]');
+  const btn = document.querySelector<HTMLButtonElement>('[data-cite-copy]');
+  const done = document.querySelector<HTMLElement>('[data-cite-done]');
+  if (text && btn && navigator.clipboard) {
+    btn.hidden = false;
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(text.textContent ?? '');
+        if (done) done.textContent = 'Copied';
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(text);
+        const s = getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        if (done) done.textContent = 'Press Ctrl+C to copy';
+      }
+    });
+  }
+</script>

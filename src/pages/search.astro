@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Search" description="Search every published page of Half an Eye." searchable={false} section="search">
+  <div class="wrap wrap--narrow">
+    <div class="page-head">
+      <h1>Search</h1>
+      <p>Search the text of every published page.</p>
+    </div>
+    <form class="search" role="search" data-search-form hidden>
+      <label for="q" class="label-caps">Search the book</label>
+      <input id="q" name="q" type="search" autocomplete="off" spellcheck="false" />
+    </form>
+    <noscript><p>Search needs JavaScript. The <a href="/#contents">contents</a>, <a href="/glossary/">glossary</a> and <a href="/bibliography/">bibliography</a> work without it.</p></noscript>
+    <p class="search__status" role="status" aria-live="polite" data-search-status></p>
+    <ol class="search__results" data-search-results></ol>
+  </div>
+  <script>
+    import '../scripts/search.ts';
+  </script>
+</Layout>

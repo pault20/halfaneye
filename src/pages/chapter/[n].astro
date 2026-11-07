@@ -3,6 +3,7 @@ import { render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import ChapterOpener from '../../components/ChapterOpener.astro';
+import CiteBox from '../../components/CiteBox.astro';
 import ChapterNav from '../../components/ChapterNav.astro';
 import { contents, visibleChapters, chapterUrl, readingMinutes } from '../../lib/content';
 import { parts } from '../../data/book';
@@ -37,6 +38,8 @@ const nextLink = next
   description={d.standfirst}
   crumb={`${d.chapter} · ${d.title}`}
   progress
+  og={`chapter-${d.chapter}`}
+  published={!isDraft}
   section="contents"
   noindex={isDraft}
 >
@@ -62,5 +65,6 @@ const nextLink = next
   <article class={`eb-p${d.part}`}>
     <div class="eb-text"><Content /></div>
   </article>
+  <CiteBox title={`Chapter ${d.chapter}: ${d.title}`} lastRevised={d.last_revised} />
   <ChapterNav prev={prevLink} next={nextLink} />
 </Layout>
