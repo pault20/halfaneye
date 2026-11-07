@@ -7,7 +7,7 @@ import { toString, frontmatter } from './util.mjs';
 const BANNED = [
   { re: /\[to confirm\]/i, name: '[to confirm]' },
   { re: /\[title to confirm\]/i, name: '[Title to confirm]' },
-  { re: /\bp\.\[/, name: 'p.[' },
+  { re: /\bp\.\[(?!\^)/, name: 'p.[' },
   { re: /\bTODO\b/, name: 'TODO' },
   { re: /\bunverified\b/i, name: 'unverified' },
 ];

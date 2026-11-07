@@ -41,7 +41,10 @@ Half an Eye is an online book about how eyes evolved, named for the question cre
 
 ### Imagery
 
-- House diagrams: flat line drawings. Structure in `ink` at 2px, the light-sensitive layer in the chapter's part colour at 5–6px, lenses as `part-*-tint` fills. Labels in `figure-number` style, capitals. No gradients, no 3D, no glow.
+- House diagrams: flat line drawings. Structure in `ink` at 2px, the light-sensitive layer in the chapter's part colour at 5–6px, lenses as `part-*-tint` fills. No gradients, no 3D, no glow.
+- Diagram labels: `font-sans` (IBM Plex Sans Condensed) Regular at 13px in `ink`, sentence case, never capitals (decided 7 Nov 2026). Long labels break onto two lines rather than run into the next panel.
+- Label leaders: straight 0.9px `ink` lines on a 3px `sunk` casing, so they read across dark fills without looking heavy. No dots or arrowheads. Place labels in columns at the edges of the drawing so leaders stay short and close to horizontal; a leader ends exactly on the part it names and never crosses label text.
+- Charts: all text, including axis numbers and value labels, in `font-sans` at 13px; numbers use tabular figures (`font-variant-numeric: tabular-nums`). Mono is not used inside charts (decided 7 Nov 2026). Gridlines in `rule`, axes in `ink`, bars in `muted`.
 - Photos: real animals and fossils only, openly licensed, credited in full under the figure. Never AI-generated images of animals or eyes.
 - Every figure is numbered by chapter (FIG. 6.3) and captioned with what it shows, not what it is.
 
