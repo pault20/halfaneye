@@ -76,10 +76,16 @@ a:hover { text-decoration-thickness: 2px; }
 .eb-text table + p > em:only-child { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-style: italic; color: var(--muted); }
 
 /* Notes: below 1200px the page cannot fit contents + text + margin, so notes drop under their paragraph.
-   (The design system says 960px; that only fits without the contents panel.) */
+   (Pages without the contents panel, such as the Atlas, use the design system's 960px.) */
 @media (max-width: 1199px) {
+  .has-toc .eb-text { grid-template-columns: minmax(0, 1fr); }
+  .has-toc .eb-text > .eb-notes { grid-column: 1; margin: calc(var(--space-6) * -1) 0 var(--space-6); padding: var(--space-3) var(--space-4); background: var(--sunk); }
+}
+@media (max-width: 959px) {
   .eb-text { grid-template-columns: minmax(0, 1fr); }
   .eb-text > .eb-notes { grid-column: 1; margin: calc(var(--space-6) * -1) 0 var(--space-6); padding: var(--space-3) var(--space-4); background: var(--sunk); }
+}
+@media (max-width: 1199px) {
   .eb-notes .eb-sidenote { margin: 0; padding: 0; background: none; }
   .eb-notes .eb-sidenote:target, .eb-notes .eb-sidenote.is-active { box-shadow: none; background: var(--accent-tint); }
 }
@@ -154,3 +160,89 @@ a:hover { text-decoration-thickness: 2px; }
 /* 404 */
 .lost { max-width: 34em; margin: 0 auto; padding: var(--space-16) var(--space-6); }
 .lost h1 { font-size: 36px; line-height: 40px; margin: 0 0 var(--space-4); }
+
+/* Top nav current page */
+.site-bar__nav a[aria-current="page"] { color: var(--accent); }
+
+/* Atlas and claims pages */
+.wrap { max-width: 1280px; margin: 0 auto; padding: var(--space-12) var(--space-8) 72px; display: grid; gap: var(--space-8); }
+.wrap--claim { max-width: 1120px; padding-top: var(--space-8); gap: var(--space-8); }
+.wrap > * { min-width: 0; }
+.back { font-family: var(--font-sans); font-size: 15px; font-weight: 500; }
+.eyebrow { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.02em; color: var(--muted); text-transform: uppercase; }
+.label-caps { font-family: var(--font-sans); font-size: 13px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.page-head { display: grid; gap: var(--space-4); max-width: 40em; }
+.page-head h1, .entry__main h1 { margin: 0; font-variation-settings: "opsz" 60; font-size: 52px; line-height: 56px; font-weight: 600; letter-spacing: -0.015em; text-wrap: balance; }
+.page-head p { margin: 0; font-size: 21px; line-height: 32px; }
+.filters { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.js .filters { display: flex; }
+.filters[hidden] { display: none; }
+.filters button { min-height: 44px; padding: 8px 16px; border-radius: var(--radius-1); font-family: var(--font-sans); font-size: 15px; font-weight: 500; cursor: pointer; background: var(--raised); color: var(--ink); border: 1px solid var(--border); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.atlas-count { margin: 0; font-family: var(--font-sans); font-size: 15px; color: var(--muted); }
+.eb-card__plate { display: grid; place-items: center; }
+.eb-card__plate span { font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; padding: var(--space-2); text-align: center; }
+.eb-card[hidden] { display: none; }
+.eb-card__draft { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+
+.entry { display: flex; flex-wrap: wrap; gap: var(--space-12); align-items: flex-start; }
+.entry__main { flex: 1 1 560px; min-width: 0; display: grid; gap: var(--space-4); }
+.entry__latin { font-size: 21px; font-style: italic; color: var(--muted); }
+.entry__stand { margin: var(--space-2) 0 0; max-width: 34em; font-size: 23px; line-height: 34px; font-style: italic; }
+.plate { margin: var(--space-4) 0 0; display: grid; gap: var(--space-2); }
+.plate__img { aspect-ratio: 16 / 9; max-width: 100%; background: var(--sunk); display: grid; place-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); text-transform: uppercase; text-align: center; padding: var(--space-4); }
+.glance { flex: 1 1 300px; max-width: 380px; min-width: 0; background: var(--sunk); padding: var(--space-6); display: grid; gap: var(--space-4); }
+.glance h2 { margin: 0; font-family: var(--font-sans); font-size: 13px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.glance dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px var(--space-4); font-size: 16px; line-height: 23px; }
+.glance dt { font-family: var(--font-sans); font-weight: 600; }
+.glance dd { margin: 0; }
+.glance__more { display: grid; gap: var(--space-2); padding-top: var(--space-4); border-top: 1px solid var(--rule); font-family: var(--font-sans); font-size: 16px; font-weight: 500; }
+.soon { color: var(--muted); }
+.soon small { font-family: var(--font-mono); font-size: 11px; }
+.entry-body { max-width: 1040px; }
+.entry-body .eb-text { padding-top: 0; }
+
+.claim-meta { display: grid; gap: var(--space-3); }
+.claim-wrap { max-width: 760px; }
+.eb-claim { max-width: 760px; }
+.eb-claim__evidence .soon { display: inline-flex; padding: 6px 12px; border: 1px dashed var(--border); border-radius: var(--radius-1); font-family: var(--font-sans); font-size: 15px; line-height: 20px; font-weight: 500; }
+.claims-list { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-8); max-width: 40em; }
+.claims-list li { display: grid; gap: var(--space-2); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
+.claims-list a { font-size: 26px; line-height: 34px; text-decoration: none; color: var(--ink); }
+.claims-list a:hover { color: var(--accent); text-decoration: underline; }
+.claims-list p { margin: 0; font-size: 17px; line-height: 26px; color: var(--muted); }
+
+/* Home: atlas and claims teasers */
+.teasers { max-width: 1280px; margin: 0 auto; padding: 56px var(--space-8); display: flex; flex-wrap: wrap; gap: var(--space-12); }
+.teasers > div { min-width: 0; display: grid; gap: var(--space-4); align-content: start; }
+.teasers h2 { margin: 0; font-size: 30px; line-height: 36px; font-weight: 600; }
+.teasers p { margin: 0; max-width: 34em; }
+.teasers__atlas { flex: 1 1 520px; }
+.teasers__claims { flex: 1 1 400px; }
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-2); font-family: var(--font-sans); font-size: 15px; }
+.chips a { padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius-1); color: var(--ink); text-decoration: none; }
+.chips a:hover { border-color: var(--accent); color: var(--accent); }
+.teasers ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-3); font-size: 19px; line-height: 27px; }
+@media (max-width: 719px) {
+  .wrap { padding: var(--space-6) var(--space-4) var(--space-12); }
+  .page-head h1, .entry__main h1 { font-size: 36px; line-height: 40px; }
+  .page-head p { font-size: 19px; line-height: 29px; }
+  .entry { gap: var(--space-8); }
+  .entry__stand { font-size: 20px; line-height: 30px; }
+  .teasers { padding: var(--space-8) var(--space-4); }
+  .claims-list a { font-size: 22px; line-height: 28px; }
+}
+.eb-claim__answer .eb-claim__h { margin: 0; font-family: var(--font-sans); font-size: 13px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+@media (max-width: 719px) {
+  .site-bar__row { flex-wrap: wrap; padding-block: var(--space-2); row-gap: 0; }
+  .site-bar__nav { flex-wrap: wrap; gap: 0 var(--space-4); font-size: 15px; }
+  .site-bar__nav a { padding: var(--space-3) 0; }
+  .site-bar__row { padding-inline: var(--space-4); }
+  .has-toc .site-bar__row { padding-inline: var(--space-2); flex-wrap: nowrap; padding-block: 0; }
+}
+@media (max-width: 719px) {
+  .site-bar__brand { white-space: nowrap; }
+  body:not(.has-toc) .site-bar__lead { flex: 1 1 100%; }
+  body:not(.has-toc) .site-bar__nav { flex: 1 1 100%; }
+}
+@media (max-width: 719px) { body:not(.has-toc) .site-bar__lead { order: 0; justify-content: flex-start; } }

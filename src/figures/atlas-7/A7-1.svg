@@ -1,0 +1,13 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <path d="M200 70 L200 250 Q320 330 440 250 L440 70" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <ellipse cx="320" cy="96" rx="104" ry="34" fill="var(--part-3-tint)" stroke="var(--part-3)" stroke-width="2"/>
+  <path d="M214 150 L426 150" stroke="var(--part-3)" stroke-width="6"/>
+  <path d="M214 186 L426 186" stroke="var(--part-2)" stroke-width="6"/>
+  <path d="M210 244 Q320 318 430 244" fill="none" stroke="var(--accent)" stroke-width="6"/>
+  <g style="font: 500 12px var(--font-mono);" fill="var(--muted)">
+    <text x="470" y="100">LENS</text><path d="M424 96 L464 96" stroke="var(--muted)" stroke-width="1"/>
+    <text x="470" y="154">DISTAL RETINA</text><path d="M430 150 L464 150" stroke="var(--muted)" stroke-width="1"/>
+    <text x="470" y="190">PROXIMAL RETINA</text><path d="M430 186 L464 186" stroke="var(--muted)" stroke-width="1"/>
+    <text x="470" y="270">MIRROR</text><path d="M432 258 L464 266" stroke="var(--muted)" stroke-width="1"/>
+  </g>
+</svg>

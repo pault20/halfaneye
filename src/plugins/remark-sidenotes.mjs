@@ -34,14 +34,15 @@ export function remarkSidenotes() {
       const notes = [];
       visit(block, 'footnoteReference', (node, index, parent) => {
         let n = numbers.get(node.identifier);
-        if (!n) {
+        const first = !n;
+        if (first) {
           n = numbers.size + 1;
           numbers.set(node.identifier, n);
           const def = defs.get(node.identifier);
           if (!def) problems.push(`footnote marker [^${node.label}] has no note`);
           notes.push(buildNote(n, def, node.label));
         }
-        parent.children[index] = el('a', { className: ['eb-cite'], href: `#sn-${n}`, id: `ref-${n}`, ariaLabel: `Note ${n}` }, [text(String(n))]);
+        parent.children[index] = el('a', { className: ['eb-cite'], href: `#sn-${n}`, ...(first ? { id: `ref-${n}` } : {}), ariaLabel: `Note ${n}` }, [text(String(n))]);
       });
       out.push(block);
       if (notes.length) out.push(el('div', { className: ['eb-notes'] }, notes));

@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AtlasCard from '../../components/AtlasCard.astro';
+import { visibleAtlas, ATLAS_CATALOGUED } from '../../lib/content';
+
+const entries = await visibleAtlas();
+const filters = [
+  ['all', 'All'],
+  ['spot', 'Eyespots and cups'],
+  ['lens', 'Lens and camera eyes'],
+  ['compound', 'Compound eyes'],
+  ['mirror', 'Mirror and pinhole eyes'],
+  ['lost', 'Lost eyes'],
+];
+---
+<Layout
+  title="Atlas of Eyes"
+  description="One page per animal, ordered from the simplest light sensor to the sharpest eye known. Filter by how the eye forms its image."
+  section="atlas"
+>
+  <div class="wrap">
+    <div class="page-head">
+      <span class="eyebrow">{entries.length} of {ATLAS_CATALOGUED} entries published</span>
+      <h1>Atlas of Eyes</h1>
+      <p>One page per animal, ordered from the simplest light sensor to the sharpest eye known. Filter by how the eye forms its image.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter by eye type" data-filters hidden>
+      {filters.map(([id, label]) => (
+        <button type="button" data-filter={id} aria-pressed={id === 'all' ? 'true' : 'false'}>{label}</button>
+      ))}
+    </div>
+    <p class="atlas-count" role="status" aria-live="polite" data-count hidden></p>
+    <div class="eb-atlas" data-grid>
+      {entries.map((entry) => <AtlasCard entry={entry} />)}
+    </div>
+  </div>
+  <script>
+    import '../../scripts/atlas-filter.ts';
+  </script>
+</Layout>

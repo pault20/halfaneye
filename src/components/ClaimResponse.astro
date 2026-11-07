@@ -1,0 +1,23 @@
+---
+import { liveRoutes, isLive } from '../lib/content';
+interface Props { claim: string; attribution: string; answer: string; evidence: { label: string; href: string }[] }
+const { claim, attribution, answer, evidence } = Astro.props;
+const routes = await liveRoutes();
+---
+<article class="eb-claim">
+  <blockquote class="eb-claim__said">
+    <p>{claim}</p>
+    <footer>{attribution}</footer>
+  </blockquote>
+  <section class="eb-claim__answer">
+    <h2 class="eb-claim__h">The short answer</h2>
+    <p>{answer}</p>
+    {evidence.length > 0 && (
+      <ul class="eb-claim__evidence">
+        {evidence.map((e) => (
+          <li>{isLive(e.href, routes) ? <a href={e.href}>{e.label}</a> : <span class="soon">{e.label} <small>· coming</small></span>}</li>
+        ))}
+      </ul>
+    )}
+  </section>
+</article>
