@@ -30,6 +30,7 @@ const isDraft = d.status === 'draft';
         {d.sample && <span>Sample page: placeholder text used to test the claim template. It is not part of the book.</span>}
       </p>
     )}
+    <h1 class="sr-only">{d.title}</h1>
     <ClaimResponse claim={d.claim} attribution={d.attribution} answer={d.short_answer} evidence={d.evidence} />
     <div class="eb-text"><Content /></div>
     <div class="claim-wrap"><CiteBox title={d.title} lastRevised={d.last_revised} /></div>

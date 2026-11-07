@@ -5,6 +5,12 @@ import '../styles/bundle.css';
 import '../styles/site.css';
 import TopBar from '../components/TopBar.astro';
 import Footer from '../components/Footer.astro';
+// Preload the faces used above the fold so text does not reflow when they arrive.
+import literata from '@fontsource-variable/literata/files/literata-latin-opsz-normal.woff2?url';
+import literataItalic from '@fontsource-variable/literata/files/literata-latin-opsz-italic.woff2?url';
+import plex500 from '@fontsource/ibm-plex-sans-condensed/files/ibm-plex-sans-condensed-latin-500-normal.woff2?url';
+import plex600 from '@fontsource/ibm-plex-sans-condensed/files/ibm-plex-sans-condensed-latin-600-normal.woff2?url';
+import mono500 from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2?url';
 
 interface Props {
   title: string; // page title; the site name is appended
@@ -12,7 +18,7 @@ interface Props {
   crumb?: string; // shown in the top bar, e.g. "6 · Our eyes"
   progress?: boolean; // reading-progress bar (chapters)
   noindex?: boolean;
-  section?: 'contents' | 'atlas' | 'claims' | 'search';
+  section?: 'contents' | 'atlas' | 'claims' | 'search' | 'about';
   og?: string; // Open Graph image slug, see src/pages/og/[slug].png.ts
   published?: boolean; // checked by scripts/check-links.mjs: only published pages must have no broken links
   searchable?: boolean; // included in the Pagefind index
@@ -47,7 +53,9 @@ const analytics = import.meta.env.PROD && !!process.env.VERCEL;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
     <meta name="page-status" content={published ? 'published' : 'draft'} />
+    <link rel="alternate" type="application/rss+xml" title="Half an Eye: new and revised pages" href="/rss.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {[literata, literataItalic, plex500, plex600, mono500].map((href) => <link rel="preload" as="font" type="font/woff2" href={href} crossorigin />)}
     <script is:inline>document.documentElement.classList.add('js');</script>
     {analytics && <script defer src="/_vercel/insights/script.js"></script>}
   </head>

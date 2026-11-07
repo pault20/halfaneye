@@ -1,5 +1,5 @@
 ---
-import type { TocPart } from '../lib/content';
+import { liveRoutes, type TocPart } from '../lib/content';
 
 interface Props {
   parts: TocPart[];
@@ -7,9 +7,17 @@ interface Props {
   sections?: { slug: string; text: string }[]; // sections of the current chapter
 }
 const { parts, current, sections = [] } = Astro.props;
+const routes = await liveRoutes();
+const front = [['/preface/', 'Preface'], ['/how-to-use/', 'How to use this book'], ['/about/', 'About']] as const;
+const back = [['/atlas/', 'Atlas of Eyes'], ['/claims/', 'Claims and responses'], ['/glossary/', 'Glossary'], ['/bibliography/', 'Bibliography'], ['/credits/', 'Credits'], ['/changelog/', 'Changelog']] as const;
 ---
 <nav class="eb-toc" aria-label="Contents">
   <p class="eb-toc__book"><a href="/" style="color: inherit; text-decoration: none;">Half an Eye</a></p>
+  {front.some(([href]) => routes.has(href)) && (
+    <ul class="eb-toc__plain" aria-label="Front matter">
+      {front.filter(([href]) => routes.has(href)).map(([href, label]) => <li class="eb-toc__item"><a href={href}>{label}</a></li>)}
+    </ul>
+  )}
   {parts.map((part) => (
     <ul class={`eb-toc__part eb-p${part.n}`}>
       <li><span class="eb-part">Part {['I', 'II', 'III', 'IV'][part.n - 1]} <span class="eb-part__nm">{part.nm} nm</span></span></li>
@@ -29,4 +37,7 @@ const { parts, current, sections = [] } = Astro.props;
       ))}
     </ul>
   ))}
+  <ul class="eb-toc__plain" aria-label="Reference">
+    {back.map(([href, label]) => <li class="eb-toc__item"><a href={href}>{label}</a></li>)}
+  </ul>
 </nav>

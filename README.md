@@ -13,6 +13,10 @@ Build guards (a `published` page fails the build if it has an unmatched footnote
 npm install
 npm run dev
 npm run build
+npm run a11y        # axe-core on every page, light and dark, at 390/768/1440px (after a build)
+npm run lighthouse  # Lighthouse on the home page and a chapter (after a build)
 ```
+
+Publishing a page: see `docs/publishing.md`.
 
 Text and original figures: CC BY 4.0. Code: MIT. Photos: each under its own licence, shown in its credit.

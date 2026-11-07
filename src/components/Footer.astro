@@ -1,4 +1,6 @@
 ---
+import { liveRoutes } from '../lib/content';
+const routes = await liveRoutes();
 ---
 <footer class="site-foot">
   <div class="site-foot__row">
@@ -7,10 +9,12 @@
       <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Photos credited individually. Code under the MIT licence.
     </p>
     <nav aria-label="Reference" class="site-foot__nav">
+      {routes.has('/about/') && <a href="/about/">About</a>}
       <a href="/glossary/">Glossary</a>
       <a href="/bibliography/">Bibliography</a>
       <a href="/credits/">Credits</a>
       <a href="/changelog/">Changelog</a>
+      <a href="/rss.xml">RSS</a>
     </nav>
   </div>
 </footer>

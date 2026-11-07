@@ -4,6 +4,7 @@ import { parts } from '../data/book';
 export type Chapter = CollectionEntry<'chapters'>;
 export type AtlasEntry = CollectionEntry<'atlas'>;
 export type Claim = CollectionEntry<'claims'>;
+export type Page = CollectionEntry<'pages'>;
 
 // Production shows only `published` pages. Previews and local builds show drafts too.
 export const showDrafts = process.env.VERCEL_ENV !== 'production' && process.env.HIDE_DRAFTS !== '1';
@@ -77,6 +78,12 @@ export async function visibleClaims(): Promise<Claim[]> {
   return live(await getCollection('claims')).sort((a, b) => a.data.number - b.data.number);
 }
 
+/** Front matter pages (preface, how-to-use, about) that exist on this build, in book order. */
+export async function visiblePages(): Promise<Page[]> {
+  return live(await getCollection('pages')).sort((a, b) => a.data.order - b.data.order);
+}
+export const pageUrl = (id: string) => `/${id}/`;
+
 export const atlasUrl = (id: string) => `/atlas/${id}/`;
 export const claimUrl = (id: string) => `/claims/${id}/`;
 
@@ -85,7 +92,9 @@ export const ATLAS_CATALOGUED = 38;
 
 /** Every internal URL that exists on this build, so links to unpublished pages can show as "coming". */
 export async function liveRoutes(): Promise<Set<string>> {
-  const routes = new Set<string>(['/', '/atlas/', '/claims/']);
+  // Pages that are always built, even with nothing published.
+  const routes = new Set<string>(['/', '/atlas/', '/claims/', '/glossary/', '/bibliography/', '/credits/', '/changelog/', '/search/']);
+  for (const p of await visiblePages()) routes.add(pageUrl(p.id));
   for (const c of await visibleChapters()) routes.add(chapterUrl(c.data.chapter));
   for (const a of await visibleAtlas()) routes.add(atlasUrl(a.id));
   for (const c of await visibleClaims()) routes.add(claimUrl(c.id));

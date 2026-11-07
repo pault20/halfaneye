@@ -86,4 +86,18 @@ const changelog = defineCollection({
   }),
 });
 
-export const collections = { chapters, atlas, claims, glossary, changelog };
+// Front matter pages: preface, how-to-use, about.
+const pages = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  schema: z.object({
+    title: z.string(),
+    standfirst: z.string(),
+    order: z.number().int(),
+    first_published: date,
+    last_revised: date,
+    status,
+    sample: z.boolean().default(false),
+  }),
+});
+
+export const collections = { chapters, atlas, claims, glossary, changelog, pages };
