@@ -11,5 +11,18 @@
     "changes": "",
     "retrieved": "2026-11-07",
     "alt": "Three eye cups side by side: a hagfish eye with no lens, a larval lamprey eye with a small lens, and an adult lamprey eye with a larger lens"
+  },
+  {
+    "id": "fig-A7-1",
+    "page": "atlas-great-scallop",
+    "file": "A7-1.svg",
+    "title": "Cross-section of a scallop eye",
+    "author": "Half an Eye",
+    "source_url": "https://halfaneye.org/atlas/great-scallop/",
+    "licence": "CC BY 4.0",
+    "after": "Land & Nilsson 2012, fig. 6.2, and Palmer et al. 2017",
+    "changes": "",
+    "retrieved": "2026-11-07",
+    "alt": "Cross-section of a scallop eye: lens at the front, two retinas, curved mirror at the back"
   }
 ]

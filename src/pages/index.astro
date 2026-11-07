@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { contents, visibleChapters, chapterUrl } from '../lib/content';
+import { contents, visibleChapters, chapterUrl, visibleAtlas, visibleClaims, atlasUrl, claimUrl } from '../lib/content';
 
 const parts = await contents();
 const first = (await visibleChapters())[0];
+const atlas = await visibleAtlas();
+const claims = await visibleClaims();
 const roman = ['I', 'II', 'III', 'IV'];
 ---
 <Layout title="Half an Eye" description="An open book on the evolution of the eye. Every stage between a light-sensitive patch and the eye you are reading this with is still in use somewhere in the animal kingdom.">
@@ -55,4 +57,27 @@ const roman = ['I', 'II', 'III', 'IV'];
       <p class="contents__note">Chapters are published one at a time, as each is checked against its sources.</p>
     </div>
   </section>
+
+  {(atlas.length > 0 || claims.length > 0) && (
+    <section class="teasers">
+      {atlas.length > 0 && (
+        <div class="teasers__atlas">
+          <h2>The Atlas of Eyes</h2>
+          <p>One page per animal, from a single-celled alga with an eyespot to the eagle that resolves twice the detail you can. Each entry links back to the chapters that explain it.</p>
+          <div class="chips">
+            {atlas.slice(0, 4).map((e) => <a href={atlasUrl(e.id)}>{e.data.common_name}</a>)}
+            <a href="/atlas/">All {atlas.length} entries →</a>
+          </div>
+        </div>
+      )}
+      {claims.length > 0 && (
+        <div class="teasers__claims">
+          <h2>Claims and responses</h2>
+          <ul>
+            {claims.slice(0, 4).map((c) => <li><a href={claimUrl(c.id)}>{c.data.claim}</a></li>)}
+          </ul>
+        </div>
+      )}
+    </section>
+  )}
 </Layout>

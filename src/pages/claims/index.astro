@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { visibleClaims, claimUrl } from '../../lib/content';
+const claims = await visibleClaims();
+---
+<Layout
+  title="Claims and responses"
+  description="Common claims about the evolution of the eye, quoted fairly, each with a short answer and links to the evidence."
+  section="claims"
+>
+  <div class="wrap">
+    <div class="page-head">
+      <span class="eyebrow">{claims.length} claims</span>
+      <h1>Claims and responses</h1>
+      <p>Each page quotes a common claim in its strongest form, gives the short answer, and links to the chapters and Atlas entries that carry the evidence.</p>
+    </div>
+    <ol class="claims-list">
+      {claims.map((c) => (
+        <li>
+          <a href={claimUrl(c.id)}>{c.data.claim}</a>
+          <p>{c.data.short_answer}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Layout>

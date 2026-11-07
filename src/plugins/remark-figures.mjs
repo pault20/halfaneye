@@ -37,8 +37,12 @@ function creditNodes(entry) {
   return nodes;
 }
 
+// Chapter figures: 4.2 -> src/figures/chapter-4/4-2.svg. Atlas figures: A7.1 -> src/figures/atlas-7/A7-1.svg.
+const folderFor = (key) => (/^\d+$/.test(key) ? `chapter-${key}` : `atlas-${key.replace(/\D/g, '')}`);
+
 function plateFor(num, chapter, n, entry, caption, problems) {
-  const dir = join(ROOT, 'src/figures', `chapter-${chapter}`);
+  const folder = folderFor(chapter);
+  const dir = join(ROOT, 'src/figures', folder);
   const base = `${chapter}-${n}`;
   const alt = entry?.alt || caption;
   if (entry && !entry.alt) problems.push(`figure ${num}: ledger entry has no alt text`);
@@ -54,9 +58,9 @@ function plateFor(num, chapter, n, entry, caption, problems) {
   }
   const raster = RASTER.find((ext) => existsSync(join(dir, `${base}.${ext}`)));
   if (raster) {
-    return el('img', { src: `/figures/chapter-${chapter}/${base}.${raster}`, alt, loading: 'lazy', decoding: 'async' });
+    return el('img', { src: `/figures/${folder}/${base}.${raster}`, alt, loading: 'lazy', decoding: 'async' });
   }
-  problems.push(`figure ${num}: no image at src/figures/chapter-${chapter}/${base}.(svg|jpg|webp)`);
+  problems.push(`figure ${num}: no image at src/figures/${folder}/${base}.(svg|jpg|webp)`);
   return el('div', { className: ['eb-figure__missing'], role: 'img', ariaLabel: `Placeholder for figure ${num}` }, [
     el('span', {}, [text(`FIG. ${num}`)]),
     el('span', {}, [text('Image not yet supplied')]),
@@ -75,7 +79,7 @@ export function remarkFigures() {
     for (let i = 0; i < kids.length; i++) {
       const node = kids[i];
       const first = node.type === 'paragraph' ? node.children[0] : null;
-      const open = first?.type === 'text' && first.value.match(/^:::figure[ \t]+(\d+)\.(\d+)[ \t]*(?:\n|$)/);
+      const open = first?.type === 'text' && first.value.match(/^:::figure[ \t]+([A-Za-z]?\d+)\.(\d+)[ \t]*(?:\n|$)/);
       if (!open) {
         out.push(node);
         continue;

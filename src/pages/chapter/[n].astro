@@ -37,6 +37,7 @@ const nextLink = next
   description={d.standfirst}
   crumb={`${d.chapter} · ${d.title}`}
   progress
+  section="contents"
   noindex={isDraft}
 >
   <TableOfContents slot="toc" parts={tocParts} current={d.chapter} sections={sections} />

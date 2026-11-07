@@ -2,6 +2,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { parts } from '../data/book';
 
 export type Chapter = CollectionEntry<'chapters'>;
+export type AtlasEntry = CollectionEntry<'atlas'>;
+export type Claim = CollectionEntry<'claims'>;
 
 // Production shows only `published` pages. Previews and local builds show drafts too.
 export const showDrafts = process.env.VERCEL_ENV !== 'production' && process.env.HIDE_DRAFTS !== '1';
@@ -60,4 +62,38 @@ export function readingMinutes(body: string): number {
   const text = body.split(/^## Editor['’]s notes\s*$/im)[0];
   const words = text.replace(/^\[\^[^\]]+\]:.*$/gm, '').split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.round(words / 230));
+}
+
+const live = <T extends { data: { status: string } }>(items: T[]) =>
+  items.filter((e) => showDrafts || e.data.status === 'published');
+
+/** Atlas entries that exist on this build, simplest light sensor first. */
+export async function visibleAtlas(): Promise<AtlasEntry[]> {
+  return live(await getCollection('atlas')).sort((a, b) => a.data.order - b.data.order);
+}
+
+/** Claim pages that exist on this build, in index order. */
+export async function visibleClaims(): Promise<Claim[]> {
+  return live(await getCollection('claims')).sort((a, b) => a.data.number - b.data.number);
+}
+
+export const atlasUrl = (id: string) => `/atlas/${id}/`;
+export const claimUrl = (id: string) => `/claims/${id}/`;
+
+/** Entries catalogued for the whole Atlas, published or not. */
+export const ATLAS_CATALOGUED = 38;
+
+/** Every internal URL that exists on this build, so links to unpublished pages can show as "coming". */
+export async function liveRoutes(): Promise<Set<string>> {
+  const routes = new Set<string>(['/', '/atlas/', '/claims/']);
+  for (const c of await visibleChapters()) routes.add(chapterUrl(c.data.chapter));
+  for (const a of await visibleAtlas()) routes.add(atlasUrl(a.id));
+  for (const c of await visibleClaims()) routes.add(claimUrl(c.id));
+  return routes;
+}
+
+/** Splits `/chapter/4/#41-x` into its path; external links count as live. */
+export function isLive(href: string, routes: Set<string>): boolean {
+  if (/^[a-z]+:/i.test(href) || href.startsWith('#')) return true;
+  return routes.has(href.split('#')[0]);
 }

@@ -12,8 +12,9 @@ interface Props {
   crumb?: string; // shown in the top bar, e.g. "6 · Our eyes"
   progress?: boolean; // reading-progress bar (chapters)
   noindex?: boolean;
+  section?: 'contents' | 'atlas' | 'claims';
 }
-const { title, description, crumb, progress = false, noindex = false } = Astro.props;
+const { title, description, crumb, progress = false, noindex = false, section } = Astro.props;
 const hasToc = Astro.slots.has('toc');
 const isHome = Astro.url.pathname === '/';
 const fullTitle = isHome ? title : `${title} · Half an Eye`;
@@ -42,7 +43,7 @@ const analytics = import.meta.env.PROD && !!process.env.VERCEL;
   </head>
   <body class={hasToc ? 'has-toc' : undefined}>
     <a class="skip" href="#main">Skip to content</a>
-    <TopBar crumb={crumb} progress={progress} hasToc={hasToc} contained={!hasToc} />
+    <TopBar section={section} crumb={crumb} progress={progress} hasToc={hasToc} contained={!hasToc} />
     {hasToc ? (
       <div class="shell">
         <div class="toc-wrap" id="toc-panel"><slot name="toc" /></div>

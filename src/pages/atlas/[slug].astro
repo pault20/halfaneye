@@ -1,0 +1,57 @@
+---
+import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { visibleAtlas, liveRoutes, isLive } from '../../lib/content';
+
+export async function getStaticPaths() {
+  return (await visibleAtlas()).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const routes = await liveRoutes();
+const isDraft = d.status === 'draft';
+---
+<Layout title={`${d.common_name} (${d.latin_name})`} description={d.standfirst} section="atlas" noindex={isDraft}>
+  <div class="wrap">
+    <a class="back" href="/atlas/">← Atlas of Eyes</a>
+    {(isDraft || d.sample) && (
+      <p class="banner" role="note">
+        <b>Draft — not fact-checked</b>
+        {d.sample && <span>Sample page: placeholder text used to test the Atlas template. It is not part of the book.</span>}
+      </p>
+    )}
+    <div class="entry">
+      <div class="entry__main">
+        <span class="label-caps">{d.eye_type}</span>
+        <h1>{d.common_name}</h1>
+        <span class="entry__latin">{d.latin_name}</span>
+        <p class="entry__stand">{d.standfirst}</p>
+        <figure class="plate">
+          <div class="plate__img" role="img" aria-label={`Photo of ${d.common_name} to be sourced`}>Photo · {d.photo_note ?? d.common_name}</div>
+        </figure>
+      </div>
+      {(d.glance.length > 0 || d.read_more.length > 0) && (
+        <aside class="glance" aria-label="At a glance">
+          {d.glance.length > 0 && (
+            <>
+              <h2>At a glance</h2>
+              <dl>{d.glance.map((g) => <><dt>{g.label}</dt><dd>{g.value}</dd></>)}</dl>
+            </>
+          )}
+          {d.read_more.length > 0 && (
+            <div class="glance__more">
+              <span class="label-caps">Read more</span>
+              {d.read_more.map((l) => isLive(l.href, routes)
+                ? <a href={l.href}>{l.label}</a>
+                : <span class="soon">{l.label} <small>· coming</small></span>)}
+            </div>
+          )}
+        </aside>
+      )}
+    </div>
+    <div class="entry-body">
+      <div class="eb-text"><Content /></div>
+    </div>
+  </div>
+</Layout>

@@ -1,6 +1,6 @@
 ---
-interface Props { crumb?: string; progress?: boolean; hasToc?: boolean; contained?: boolean }
-const { crumb, progress = false, hasToc = false, contained = false } = Astro.props;
+interface Props { section?: 'contents' | 'atlas' | 'claims'; crumb?: string; progress?: boolean; hasToc?: boolean; contained?: boolean }
+const { section, crumb, progress = false, hasToc = false, contained = false } = Astro.props;
 ---
 <header class:list={['site-bar', { 'site-bar--contained': contained }]}>
   <div class="site-bar__row">
@@ -14,7 +14,9 @@ const { crumb, progress = false, hasToc = false, contained = false } = Astro.pro
       {crumb && <span class="site-bar__crumb">{crumb}</span>}
     </div>
     <nav class="site-bar__nav" aria-label="Main">
-      <a href="/#contents">Contents</a>
+      <a href="/#contents" aria-current={section === 'contents' ? 'page' : undefined}>Contents</a>
+      <a href="/atlas/" aria-current={section === 'atlas' ? 'page' : undefined}>Atlas of Eyes</a>
+      <a href="/claims/" aria-current={section === 'claims' ? 'page' : undefined}>Claims and responses</a>
     </nav>
   </div>
   {progress && (
