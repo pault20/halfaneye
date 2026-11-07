@@ -7,7 +7,7 @@ export function remarkEditorsNotes() {
   return (tree) => {
     const kids = tree.children;
     const start = kids.findIndex(
-      (n) => n.type === 'heading' && n.depth === 2 && /^editor['’]s notes$/i.test(toString(n).trim()),
+      (n) => n.type === 'heading' && n.depth === 2 && /^editor['’]s notes\b/i.test(toString(n).trim()),
     );
     if (start === -1) return;
     const defs = kids.slice(start).filter((n) => n.type === 'footnoteDefinition');
