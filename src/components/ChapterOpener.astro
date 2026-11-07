@@ -1,0 +1,25 @@
+---
+import { formatDate, isoDate } from '../lib/content';
+interface Props {
+  part: number;
+  nm: number;
+  chapter: number;
+  title: string;
+  standfirst: string;
+  firstPublished?: Date | null;
+  lastRevised?: Date | null;
+  minutes: number;
+}
+const { part, nm, chapter, title, standfirst, firstPublished, lastRevised, minutes } = Astro.props;
+---
+<header class={`eb-opener eb-p${part}`}>
+  <div class="eb-opener__num" aria-hidden="true">{chapter}</div>
+  <span class="eb-part">Part {['I', 'II', 'III', 'IV'][part - 1]} <span class="eb-part__nm">{nm} nm</span></span>
+  <h1 class="eb-opener__title">{title}</h1>
+  <p class="eb-opener__stand">{standfirst}</p>
+  <div class="eb-opener__meta">
+    {firstPublished && <span>First published <time datetime={isoDate(firstPublished)}>{formatDate(firstPublished)}</time></span>}
+    {lastRevised && <span>Last revised <time datetime={isoDate(lastRevised)}>{formatDate(lastRevised)}</time></span>}
+    <span>{minutes} min read</span>
+  </div>
+</header>

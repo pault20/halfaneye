@@ -1,0 +1,60 @@
+---
+import '../styles/fonts.css';
+import '../styles/tokens.css';
+import '../styles/bundle.css';
+import '../styles/site.css';
+import TopBar from '../components/TopBar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string; // page title; the site name is appended
+  description: string;
+  crumb?: string; // shown in the top bar, e.g. "6 · Our eyes"
+  progress?: boolean; // reading-progress bar (chapters)
+  noindex?: boolean;
+}
+const { title, description, crumb, progress = false, noindex = false } = Astro.props;
+const hasToc = Astro.slots.has('toc');
+const isHome = Astro.url.pathname === '/';
+const fullTitle = isHome ? title : `${title} · Half an Eye`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const analytics = import.meta.env.PROD && !!process.env.VERCEL;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:site_name" content="Half an Eye" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content={isHome ? 'website' : 'article'} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    {analytics && <script defer src="/_vercel/insights/script.js"></script>}
+  </head>
+  <body class={hasToc ? 'has-toc' : undefined}>
+    <a class="skip" href="#main">Skip to content</a>
+    <TopBar crumb={crumb} progress={progress} hasToc={hasToc} contained={!hasToc} />
+    {hasToc ? (
+      <div class="shell">
+        <div class="toc-wrap" id="toc-panel"><slot name="toc" /></div>
+        <main id="main" class="page"><slot /></main>
+      </div>
+      <div class="toc-backdrop" data-toc-backdrop></div>
+    ) : (
+      <main id="main"><slot /></main>
+    )}
+    <Footer />
+    <script>
+      import '../scripts/shell.ts';
+    </script>
+  </body>
+</html>

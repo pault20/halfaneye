@@ -1,0 +1,65 @@
+---
+import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import ChapterOpener from '../../components/ChapterOpener.astro';
+import ChapterNav from '../../components/ChapterNav.astro';
+import { contents, visibleChapters, chapterUrl, readingMinutes } from '../../lib/content';
+import { parts } from '../../data/book';
+
+export async function getStaticPaths() {
+  const chapters = await visibleChapters();
+  return chapters.map((entry, i) => ({
+    params: { n: String(entry.data.chapter) },
+    props: { entry, prev: chapters[i - 1], next: chapters[i + 1] },
+  }));
+}
+
+const { entry, prev, next } = Astro.props;
+const { Content, headings } = await render(entry);
+const d = entry.data;
+const part = parts.find((p) => p.n === d.part)!;
+const tocParts = await contents();
+const sections = headings.filter((h) => h.depth === 2).map((h) => ({ slug: h.slug, text: h.text }));
+const isDraft = d.status === 'draft';
+
+// First chapter links back to the contents, the last on to the contents, until the
+// Preface and Atlas pages exist (Milestones 2 and 4).
+const prevLink = prev
+  ? { dir: `← Chapter ${prev.data.chapter}`, title: prev.data.title, href: chapterUrl(prev.data.chapter) }
+  : { dir: '← Start', title: 'Contents', href: '/#contents' };
+const nextLink = next
+  ? { dir: `Chapter ${next.data.chapter} →`, title: next.data.title, href: chapterUrl(next.data.chapter) }
+  : { dir: 'More →', title: 'Contents', href: '/#contents' };
+---
+<Layout
+  title={d.title}
+  description={d.standfirst}
+  crumb={`${d.chapter} · ${d.title}`}
+  progress
+  noindex={isDraft}
+>
+  <TableOfContents slot="toc" parts={tocParts} current={d.chapter} sections={sections} />
+
+  {(isDraft || d.sample) && (
+    <p class="banner" role="note">
+      <b>Draft — not fact-checked</b>
+      {d.sample && <span>Sample page: placeholder text used to test the chapter template. It is not part of the book.</span>}
+    </p>
+  )}
+
+  <ChapterOpener
+    part={d.part}
+    nm={part.nm}
+    chapter={d.chapter}
+    title={d.title}
+    standfirst={d.standfirst}
+    firstPublished={d.first_published}
+    lastRevised={d.last_revised}
+    minutes={readingMinutes(entry.body ?? '')}
+  />
+  <article class={`eb-p${d.part}`}>
+    <div class="eb-text"><Content /></div>
+  </article>
+  <ChapterNav prev={prevLink} next={nextLink} />
+</Layout>

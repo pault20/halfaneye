@@ -1,0 +1,32 @@
+---
+import type { TocPart } from '../lib/content';
+
+interface Props {
+  parts: TocPart[];
+  current?: number; // chapter number being read
+  sections?: { slug: string; text: string }[]; // sections of the current chapter
+}
+const { parts, current, sections = [] } = Astro.props;
+---
+<nav class="eb-toc" aria-label="Contents">
+  <p class="eb-toc__book"><a href="/" style="color: inherit; text-decoration: none;">Half an Eye</a></p>
+  {parts.map((part) => (
+    <ul class={`eb-toc__part eb-p${part.n}`}>
+      <li><span class="eb-part">Part {['I', 'II', 'III', 'IV'][part.n - 1]} <span class="eb-part__nm">{part.nm} nm</span></span></li>
+      {part.items.map((item) => item.href ? (
+        <li class="eb-toc__item" aria-current={item.n === current ? 'page' : undefined}>
+          <a href={item.href}><span class="eb-toc__n">{item.n}</span>{item.title}</a>
+          {item.n === current && sections.length > 0 && (
+            <ul class="eb-toc__sections" aria-label="Sections">
+              {sections.map((s) => <li><a href={`#${s.slug}`}>{s.text}</a></li>)}
+            </ul>
+          )}
+        </li>
+      ) : (
+        <li class="eb-toc__item is-soon">
+          <span class="eb-toc__row"><span class="eb-toc__n">{item.n}</span><span>{item.title} <span class="eb-toc__soon">· coming</span></span></span>
+        </li>
+      ))}
+    </ul>
+  ))}
+</nav>

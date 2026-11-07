@@ -1,0 +1,23 @@
+---
+interface Props { crumb?: string; progress?: boolean; hasToc?: boolean; contained?: boolean }
+const { crumb, progress = false, hasToc = false, contained = false } = Astro.props;
+---
+<header class:list={['site-bar', { 'site-bar--contained': contained }]}>
+  <div class="site-bar__row">
+    {hasToc && (
+      <button type="button" class="site-bar__menu" aria-label="Open contents" aria-controls="toc-panel" aria-expanded="false" data-toc-toggle>
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" fill="none" /></svg>
+      </button>
+    )}
+    <div class="site-bar__lead">
+      <a class="site-bar__brand" href="/">Half an Eye</a>
+      {crumb && <span class="site-bar__crumb">{crumb}</span>}
+    </div>
+    <nav class="site-bar__nav" aria-label="Main">
+      <a href="/#contents">Contents</a>
+    </nav>
+  </div>
+  {progress && (
+    <div class="progress" aria-hidden="true"><div class="progress__fill" data-progress></div></div>
+  )}
+</header>
