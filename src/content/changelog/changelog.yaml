@@ -1,5 +1,12 @@
 # Newest entries are sorted to the top by date. page is an internal URL.
 # Sample entries for build testing; status: draft entries appear on previews only.
+- id: 2026-11-08-how-to-use
+  date: 2026-11-08
+  page: /how-to-use/
+  title: How to use this book
+  kind: published
+  summary: First published.
+  status: published
 - id: 2026-11-08-preface
   date: 2026-11-08
   page: /preface/
