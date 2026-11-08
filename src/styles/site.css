@@ -340,3 +340,8 @@ a:hover { text-decoration-thickness: 2px; }
 /* Long quotations in running text: set on the sunk ground, as the claim quote is. No coloured rule (README, Layout). */
 .eb-text > blockquote { grid-column: 1; margin: 0 0 var(--space-6); padding: var(--space-4) var(--space-6); background: var(--sunk); }
 .eb-text > blockquote p { margin: 0; font-size: 17px; line-height: 28px; }
+
+/* Atlas: real header photo and card photo */
+.plate--photo { margin-top: var(--space-4); }
+.eb-card__plate { overflow: hidden; }
+.eb-card__plate > img { width: 100%; height: 100%; object-fit: cover; display: block; }
