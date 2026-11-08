@@ -5,7 +5,7 @@ interface Props { entry: AtlasEntry }
 const { entry } = Astro.props;
 const d = entry.data;
 ---
-<a class="eb-card" href={atlasUrl(entry.id)} data-eye-class={d.eye_class}>
+<a class="eb-card" href={atlasUrl(entry.id)} data-eye-class={d.eye_class} data-group={d.animal_group}>
   <div class="eb-card__plate"><span>Photo · {d.photo_note ?? d.common_name}</span></div>
   <div class="eb-card__body">
     <span class="eb-card__type">{d.eye_type}</span>
