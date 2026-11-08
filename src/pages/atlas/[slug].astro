@@ -3,6 +3,7 @@ import { render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import CiteBox from '../../components/CiteBox.astro';
 import { visibleAtlas, liveRoutes, isLive } from '../../lib/content';
+import { atlasPhoto } from '../../lib/credits';
 
 export async function getStaticPaths() {
   return (await visibleAtlas()).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
@@ -12,6 +13,7 @@ const { Content } = await render(entry);
 const d = entry.data;
 const routes = await liveRoutes();
 const isDraft = d.status === 'draft';
+const photo = d.photo ? atlasPhoto(d.photo.figure) : null;
 ---
 <Layout title={`${d.common_name} (${d.latin_name})`} description={d.standfirst} section="atlas" noindex={isDraft} og={`atlas-${entry.id}`} published={!isDraft}>
   <div class="wrap">
@@ -28,9 +30,20 @@ const isDraft = d.status === 'draft';
         <h1>{d.common_name}</h1>
         <span class="entry__latin">{d.latin_name}</span>
         <p class="entry__stand">{d.standfirst}</p>
-        <figure class="plate">
-          <div class="plate__img" role="img" aria-label={`Photo of ${d.common_name} to be sourced`}>Photo · {d.photo_note ?? d.common_name}</div>
-        </figure>
+        {photo && d.photo ? (
+          <figure class="eb-figure plate plate--photo" id={photo.id.replace(/^fig-/, 'fig-')}>
+            <div class="eb-figure__plate eb-figure__plate--photo"><img src={photo.src} alt={photo.alt} decoding="async" /></div>
+            <figcaption>
+              <span class="eb-figure__num">{photo.label}</span>
+              <span set:html={d.photo.caption.replace(/\*([^*]+)\*/g, '<i>$1</i>')} />
+              <span class="eb-figure__credit">Photo: {photo.author}, via <a href={photo.url}>{photo.site}</a>, {photo.licence}.{photo.changes && ` ${photo.changes}.`}</span>
+            </figcaption>
+          </figure>
+        ) : (
+          <figure class="plate">
+            <div class="plate__img" role="img" aria-label={`Photo of ${d.common_name} to be sourced`}>Photo · {d.photo_note ?? d.common_name}</div>
+          </figure>
+        )}
       </div>
       {(d.glance.length > 0 || d.read_more.length > 0) && (
         <aside class="glance" aria-label="At a glance">

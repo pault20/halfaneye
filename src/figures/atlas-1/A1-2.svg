@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="A single Euglena cell with its flagellum, stigma and light sensor labelled, and four end-on views showing the stigma shading the sensor once per roll">
+<style>
+.cell{fill:var(--raised, #fbfcfa);stroke:var(--ink, #172026);stroke-width:2;stroke-linejoin:round}
+.line{fill:none;stroke:var(--ink, #172026);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.thin{fill:none;stroke:var(--ink, #172026);stroke-width:1}
+.pig{fill:var(--ink, #172026);stroke:none}
+.sens{fill:var(--part-2, #0d7480);stroke:var(--part-2, #0d7480);stroke-width:1.5}
+.sensoff{fill:var(--raised, #fbfcfa);stroke:var(--part-2, #0d7480);stroke-width:2}
+.fl{fill:none;stroke:var(--ink, #172026);stroke-width:2;stroke-linecap:round}
+.light{fill:none;stroke:var(--muted, #4a5860);stroke-width:1.5;stroke-dasharray:3 3}
+.lighthead{fill:none;stroke:var(--muted, #4a5860);stroke-width:1.5;stroke-linejoin:round}
+.lead{fill:none;stroke:var(--ink, #172026);stroke-width:0.9;stroke-linecap:round}
+.halo{fill:none;stroke:var(--sunk, #e8ece6);stroke-width:3;stroke-linecap:round}
+.rule{fill:none;stroke:var(--rule, #cfd7d2);stroke-width:1}
+.lab{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.labb{font:600 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.labp{font:600 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--part-2, #0d7480)}
+.tag{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--part-2, #0d7480)}
+.mut{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--muted, #4a5860)}
+.pl{font:500 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.foot{font:400 12px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--muted, #4a5860)}
+</style>
+<text class="pl" x="10" y="22">(a)</text>
+<path class="cell" d="M150.0 120.0 L150.9 115.1 L153.5 111.5 L157.8 108.3 L163.8 105.4 L171.4 102.8 L180.6 100.4 L191.1 98.2 L202.9 96.3 L216.0 94.7 L230.0 93.3 L244.9 92.1 L260.6 91.2 L276.7 90.5 L293.3 90.1 L310.0 90.0 L326.7 90.1 L343.3 90.5 L359.4 91.2 L375.1 92.1 L390.0 93.3 L404.0 94.7 L417.1 96.3 L428.9 98.2 L439.4 100.4 L448.6 102.8 L456.2 105.4 L462.2 108.3 L466.5 111.5 L469.1 115.1 L470.0 120.0 L470.0 120.0 L469.1 124.9 L466.5 128.5 L462.2 131.7 L456.2 134.6 L448.6 137.2 L439.4 139.6 L428.9 141.8 L417.1 143.7 L404.0 145.3 L390.0 146.7 L375.1 147.9 L359.4 148.8 L343.3 149.5 L326.7 149.9 L310.0 150.0 L293.3 149.9 L276.7 149.5 L260.6 148.8 L244.9 147.9 L230.0 146.7 L216.0 145.3 L202.9 143.7 L191.1 141.8 L180.6 139.6 L171.4 137.2 L163.8 134.6 L157.8 131.7 L153.5 128.5 L150.9 124.9 L150.0 120.0 Z"/>
+<path class="fl" d="M212 121 L150 120 C132 119 124 106 106 108 C88 110 80 128 62 126 C46 124 38 112 26 110"/>
+<ellipse class="sens" cx="196" cy="121" rx="6" ry="4"/>
+<path class="pig" d="M186 108 C191 103 202 103 207 108 C203 112 191 113 186 108 Z"/>
+<path class="halo" d="M198 104 L236 58"/><path class="lead" d="M198 104 L236 58"/><text class="lab" x="240" y="62" text-anchor="start">Stigma (eyespot): a shade,</text><text class="lab" x="240" y="77" text-anchor="start">not a light sensor</text>
+<path class="halo" d="M196 125 L236 176"/><path class="lead" d="M196 125 L236 176"/><text class="labp" x="240" y="180" text-anchor="start">Paraflagellar body:</text><text class="labp" x="240" y="195" text-anchor="start">the light sensor</text>
+<path class="halo" d="M88 118 L72 160"/><path class="lead" d="M88 118 L72 160"/><text class="lab" x="68" y="164" text-anchor="end">Flagellum</text>
+<text class="foot" x="630" y="205" text-anchor="end">Front end on the left · stigma and sensor enlarged</text>
+<path class="rule" d="M10 222 L630 222"/>
+<text class="pl" x="10" y="246">(b)</text>
+<text class="lab" x="40" y="246">The cell seen end-on from the front, a quarter turn apart. Light comes from the left.</text>
+<path class="light" d="M7 308 L45 308"/>
+<path class="lighthead" d="M37 303 L45 308 L37 313"/>
+<path class="light" d="M7 330 L45 330"/>
+<path class="lighthead" d="M37 325 L45 330 L37 335"/>
+<path class="light" d="M7 352 L45 352"/>
+<path class="lighthead" d="M37 347 L45 352 L37 357"/>
+<circle class="cell" cx="95" cy="330" r="38"/>
+<path class="line" style="stroke-width:7" d="M84.0 303.4 L106.0 303.4"/>
+<circle class="sens" cx="95.0" cy="316.7" r="6"/>
+<text class="lab" x="95" y="392" text-anchor="middle">Sensor lit</text>
+<path class="thin" d="M178.0 280 Q192.0 266 206.0 280"/>
+<path class="thin" d="M200.0 275 L206.0 280 L199.0 283"/>
+<path class="light" d="M157 308 L195 308"/>
+<path class="lighthead" d="M187 303 L195 308 L187 313"/>
+<path class="light" d="M157 330 L195 330"/>
+<path class="lighthead" d="M187 325 L195 330 L187 335"/>
+<path class="light" d="M157 352 L195 352"/>
+<path class="lighthead" d="M187 347 L195 352 L187 357"/>
+<circle class="cell" cx="245" cy="330" r="38"/>
+<path class="line" style="stroke-width:7" d="M271.6 319.0 L271.6 341.0"/>
+<circle class="sens" cx="258.3" cy="330.0" r="6"/>
+<text class="lab" x="245" y="392" text-anchor="middle">Sensor lit</text>
+<path class="thin" d="M328.0 280 Q342.0 266 356.0 280"/>
+<path class="thin" d="M350.0 275 L356.0 280 L349.0 283"/>
+<path class="light" d="M307 308 L345 308"/>
+<path class="lighthead" d="M337 303 L345 308 L337 313"/>
+<path class="light" d="M307 330 L345 330"/>
+<path class="lighthead" d="M337 325 L345 330 L337 335"/>
+<path class="light" d="M307 352 L345 352"/>
+<path class="lighthead" d="M337 347 L345 352 L337 357"/>
+<circle class="cell" cx="395" cy="330" r="38"/>
+<path class="line" style="stroke-width:7" d="M406.0 356.6 L384.0 356.6"/>
+<circle class="sens" cx="395.0" cy="343.3" r="6"/>
+<text class="lab" x="395" y="392" text-anchor="middle">Sensor lit</text>
+<path class="thin" d="M478.0 280 Q492.0 266 506.0 280"/>
+<path class="thin" d="M500.0 275 L506.0 280 L499.0 283"/>
+<path class="light" d="M457 308 L495 308"/>
+<path class="lighthead" d="M487 303 L495 308 L487 313"/>
+<path class="light" d="M457 330 L495 330"/>
+<path class="lighthead" d="M487 325 L495 330 L487 335"/>
+<path class="light" d="M457 352 L495 352"/>
+<path class="lighthead" d="M487 347 L495 352 L487 357"/>
+<circle class="cell" cx="545" cy="330" r="38"/>
+<path class="line" style="stroke-width:7" d="M518.4 341.0 L518.4 319.0"/>
+<circle class="sensoff" cx="531.7" cy="330.0" r="6"/>
+<text class="labb" x="545" y="392" text-anchor="middle">Sensor shaded</text>
+<text class="mut" x="320" y="268" text-anchor="middle">Quarter turn · 1–2 rolls a second</text>
+<text class="lab" x="320" y="422" text-anchor="middle">Sensor shaded once per roll → signal switches on and off → flagellum changes its beat → cell turns</text>
+</svg>

@@ -216,5 +216,43 @@
     "after": "Tiwary et al. 2025, Sci Adv 11:eady2888, fig. 4 (CC BY 4.0)",
     "retrieved": "2026-11-07",
     "alt": "Five simple camera eyes: open, half-closed, pinhole, then a weak lens and a focusing lens with a wide pupil"
+  },
+  {
+    "page": "atlas-euglena",
+    "retrieved": "2026-11-08",
+    "id": "fig-A1-1",
+    "file": "A1-1.jpg",
+    "title": "Euglena gracilis cells under a light microscope",
+    "author": "Ellis O'Neill",
+    "source_url": "https://commons.wikimedia.org/wiki/File:FieldofEuglena.gracilis.jpg",
+    "licence": "CC BY-SA 3.0",
+    "changes": "",
+    "alt": "Spindle-shaped green cells scattered on a pale background, some with a tiny orange spot at one end, beside a 10 µm scale bar"
+  },
+  {
+    "page": "atlas-euglena",
+    "retrieved": "2026-11-08",
+    "id": "fig-A1-2",
+    "file": "A1-2.svg",
+    "title": "How a shaded sensor steers a rolling Euglena cell",
+    "author": "Half an Eye",
+    "source_url": "https://halfaneye.org/atlas/euglena/",
+    "licence": "CC BY 4.0",
+    "changes": "",
+    "after": "Tsang et al. 2018, fig. 1d, and Jékely 2009",
+    "alt": "A single cell with its flagellum, red stigma and light sensor labelled, and four end-on views showing the stigma shading the sensor once per roll"
+  },
+  {
+    "page": "atlas-euglena",
+    "retrieved": "2026-11-08",
+    "id": "fig-A1-3",
+    "file": "A1-3.svg",
+    "title": "Where Euglena sits on the tree of complex cells",
+    "author": "Half an Eye",
+    "source_url": "https://halfaneye.org/atlas/euglena/",
+    "licence": "CC BY 4.0",
+    "changes": "",
+    "after": "Burki et al. 2020, fig. 1, and Jékely 2009, table 1",
+    "alt": "Tree of complex cells with Euglena and animals on separate branches, each light-steering group tagged with the protein it uses"
   }
 ]

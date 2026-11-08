@@ -5,6 +5,8 @@ import { visibleAtlas, ATLAS_CATALOGUED } from '../../lib/content';
 
 const entries = await visibleAtlas();
 const groups = [...new Set(entries.map((e) => e.data.animal_group))].sort((a, b) => a.localeCompare(b));
+// Offer only filters that would show something; with one kind of eye there is nothing to filter.
+const classes = new Set(entries.map((e) => e.data.eye_class));
 const filters = [
   ['all', 'All'],
   ['spot', 'Eyespots and cups'],
@@ -26,11 +28,13 @@ const filters = [
       <h1>Atlas of Eyes</h1>
       <p>One page per animal, ordered from the simplest light sensor to the sharpest eye known. Filter by how the eye forms its image or by animal group.</p>
     </div>
+    {classes.size > 1 && (
     <div class="filters" role="group" aria-label="Filter by eye type" data-filters="type" hidden>
-      {filters.map(([id, label]) => (
+      {filters.filter(([id]) => id === 'all' || classes.has(id as never)).map(([id, label]) => (
         <button type="button" data-filter={id} aria-pressed={id === 'all' ? 'true' : 'false'}>{label}</button>
       ))}
     </div>
+    )}
     {groups.length > 1 && (
       <div class="filters filters--group" role="group" aria-label="Filter by animal group" data-filters="group" hidden>
         <button type="button" data-filter="all" aria-pressed="true">All groups</button>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 530" role="img" aria-label="Tree of complex cells with Euglena and animals on separate branches, each light-steering group tagged with the protein it uses">
+<style>
+.line{fill:none;stroke:var(--ink, #172026);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rule{fill:none;stroke:var(--rule, #cfd7d2);stroke-width:1}
+.lab{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.labb{font:600 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--ink, #172026)}
+.labp{font:600 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--part-2, #0d7480)}
+.tag{font:400 13px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--part-2, #0d7480)}
+.foot{font:400 12px var(--font-sans, 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif);fill:var(--muted, #4a5860)}
+</style>
+<text class="labb" x="232" y="40">Group</text>
+<text class="labb" x="470" y="40">Steers by light with</text>
+<path class="rule" d="M40 50 L630 50"/>
+<path class="line" d="M40 82.0 L40 430.0"/>
+<path class="line" d="M40 82.0 L200 82.0"/>
+<text class="labb" x="52" y="76.0">Discoba</text>
+<path class="line" d="M200 70 L200 94"/>
+<path class="line" d="M200 70 L226 70"/>
+<text class="labp" x="232" y="74">Euglenids (<tspan font-style="italic">Euglena</tspan>)</text>
+
+<text class="tag" x="470" y="74">PAC</text>
+<path class="line" d="M200 94 L226 94"/>
+<text class="lab" x="232" y="98">Trypanosomes</text>
+<path class="line" d="M40 130.0 L200 130.0"/>
+<text class="labb" x="52" y="124.0">Metamonada</text>
+<path class="line" d="M200 130 L226 130"/>
+<text class="lab" x="232" y="134"><tspan font-style="italic">Giardia</tspan> and relatives</text>
+<path class="line" d="M40 190.0 L200 190.0"/>
+<text class="labb" x="52" y="184.0">Amorphea</text>
+<path class="line" d="M200 166 L200 214"/>
+<path class="line" d="M200 166 L226 166"/>
+<text class="labb" x="232" y="170">Animals</text>
+
+<text class="tag" x="470" y="170">Animal opsin</text>
+<path class="line" d="M200 190 L226 190"/>
+<text class="lab" x="232" y="194">Fungi</text>
+<path class="line" d="M200 214 L226 214"/>
+<text class="lab" x="232" y="218">Amoebozoa</text>
+<path class="line" d="M40 274.0 L200 274.0"/>
+<text class="labb" x="52" y="268.0">Archaeplastida</text>
+<path class="line" d="M200 250 L200 298"/>
+<path class="line" d="M200 250 L226 250"/>
+<text class="lab" x="232" y="254">Green algae</text>
+
+<text class="tag" x="470" y="254">Microbial rhodopsin</text>
+<path class="line" d="M200 274 L226 274"/>
+<text class="lab" x="232" y="278">Land plants</text>
+<path class="line" d="M200 298 L226 298"/>
+<text class="lab" x="232" y="302">Red algae</text>
+<path class="line" d="M40 334.0 L200 334.0"/>
+<text class="labb" x="52" y="328.0">Cryptista</text>
+<path class="line" d="M200 334 L226 334"/>
+<text class="lab" x="232" y="338">Cryptophytes</text>
+
+<text class="tag" x="470" y="338">Microbial rhodopsin</text>
+<path class="line" d="M40 370.0 L200 370.0"/>
+<text class="labb" x="52" y="364.0">Haptista</text>
+<path class="line" d="M200 370 L226 370"/>
+<text class="lab" x="232" y="374">Haptophytes</text>
+<path class="line" d="M40 430.0 L200 430.0"/>
+<text class="labb" x="52" y="424.0">TSAR</text>
+<path class="line" d="M200 406 L200 454"/>
+<path class="line" d="M200 406 L226 406"/>
+<text class="lab" x="232" y="410">Stramenopiles (heterokonts)</text>
+
+<text class="tag" x="470" y="410">Flavoprotein</text>
+<path class="line" d="M200 430 L226 430"/>
+<text class="lab" x="232" y="434">Alveolates</text>
+<path class="line" d="M200 454 L226 454"/>
+<text class="lab" x="232" y="458">Rhizaria</text>
+<text class="foot" x="40" y="508">The order of branching between these groups is not resolved, so they are drawn joining at one point.</text>
+<text class="foot" x="40" y="523">Only some members of each group are shown. Tags cover the groups named on this page; some others also steer by light.</text>
+</svg>

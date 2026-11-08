@@ -28,3 +28,29 @@ export async function credits(): Promise<(Credit & { url: string })[]> {
     .map((c) => ({ ...c, url: pageUrl(c.page) ?? '' }))
     .filter((c) => c.url && routes.has(c.url));
 }
+
+/** Header-photo data for an Atlas entry: "A1.1" -> image URL, alt text and credit parts. */
+export function atlasPhoto(figure: string) {
+  const m = figure.match(/^A(\d+)\.(\d+)$/);
+  if (!m) return null;
+  const id = `fig-A${m[1]}-${m[2]}`;
+  const entry = (ledger as Credit[]).find((c) => c.id === id);
+  if (!entry) return null;
+  const ext = entry.file.match(/\.(jpe?g|png|webp)$/i)?.[0] ?? '.jpg';
+  let site = 'source';
+  try {
+    const host = new URL(entry.source_url).hostname.replace(/^www\./, '');
+    site = host.endsWith('wikimedia.org') ? 'Wikimedia Commons' : host.endsWith('inaturalist.org') ? 'iNaturalist' : host;
+  } catch { /* keep "source" */ }
+  return {
+    id,
+    label: `FIG. A${m[1]}.${m[2]}`,
+    src: `/figures/atlas-${m[1]}/A${m[1]}-${m[2]}${ext}`,
+    alt: entry.alt,
+    author: entry.author,
+    site,
+    url: entry.source_url,
+    licence: entry.licence,
+    changes: entry.changes && !/^none$/i.test(entry.changes) ? entry.changes : '',
+  };
+}

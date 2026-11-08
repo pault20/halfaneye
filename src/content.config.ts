@@ -41,6 +41,9 @@ const atlas = defineCollection({
     glance: z.array(z.object({ label: z.string(), value: z.string() })).default([]),
     read_more: z.array(link).default([]),
     photo_note: z.string().optional(), // placeholder label until the photo is sourced
+    // Header photo: a figure number ("A1.1") whose image is src/figures/atlas-N/A1-1.jpg and whose
+    // credit and alt text come from the ledger (fig-A1-1). Also used on the Atlas card.
+    photo: z.object({ figure: z.string(), caption: z.string() }).optional(),
     first_published: date,
     last_revised: date,
     status,

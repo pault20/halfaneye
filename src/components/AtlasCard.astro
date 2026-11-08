@@ -1,12 +1,16 @@
 ---
 import type { AtlasEntry } from '../lib/content';
 import { atlasUrl } from '../lib/content';
+import { atlasPhoto } from '../lib/credits';
 interface Props { entry: AtlasEntry }
 const { entry } = Astro.props;
 const d = entry.data;
+const photo = d.photo ? atlasPhoto(d.photo.figure) : null;
 ---
 <a class="eb-card" href={atlasUrl(entry.id)} data-eye-class={d.eye_class} data-group={d.animal_group}>
-  <div class="eb-card__plate"><span>Photo · {d.photo_note ?? d.common_name}</span></div>
+  <div class="eb-card__plate">{photo
+    ? <img src={photo.src} alt="" loading="lazy" decoding="async" />
+    : <span>Photo · {d.photo_note ?? d.common_name}</span>}</div>
   <div class="eb-card__body">
     <span class="eb-card__type">{d.eye_type}</span>
     <h2 class="eb-card__name">{d.common_name}</h2>
