@@ -1,5 +1,12 @@
 # Newest entries are sorted to the top by date. page is an internal URL.
 # Sample entries for build testing; status: draft entries appear on previews only.
+- id: 2026-11-08-preface
+  date: 2026-11-08
+  page: /preface/
+  title: Preface
+  kind: published
+  summary: First published.
+  status: published
 - id: 2026-11-07-claim-nilsson-pelger
   date: 2026-11-07
   page: /claims/nilsson-and-pelger-was-not-a-real-simulation/
