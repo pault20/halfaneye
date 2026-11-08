@@ -42,7 +42,11 @@ export function remarkSidenotes() {
           if (!def) problems.push(`footnote marker [^${node.label}] has no note`);
           notes.push(buildNote(n, def, node.label));
         }
-        parent.children[index] = el('a', { className: ['eb-cite'], href: `#sn-${n}`, ...(first ? { id: `ref-${n}` } : {}), ariaLabel: `Note ${n}` }, [text(String(n))]);
+        // A marker straight after another marker (no text between) gets a separating comma: "1,2".
+        const prev = parent.children[index - 1];
+        const follows = prev?.data?.hProperties?.className?.includes('eb-cite');
+        const cls = follows ? ['eb-cite', 'eb-cite--follows'] : ['eb-cite'];
+        parent.children[index] = el('a', { className: cls, href: `#sn-${n}`, ...(first ? { id: `ref-${n}` } : {}), ariaLabel: `Note ${n}` }, [text(String(n))]);
       });
       out.push(block);
       if (notes.length) out.push(el('div', { className: ['eb-notes'] }, notes));

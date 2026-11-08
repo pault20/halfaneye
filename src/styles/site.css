@@ -335,4 +335,8 @@ a:hover { text-decoration-thickness: 2px; }
 @media (max-width: 640px) { .eb-anim { grid-template-columns: minmax(0, 1fr); } }
 
 /* Two markers on one sentence read as "1,2", not "12" */
-.eb-cite + .eb-cite::before { content: ","; }
+.eb-cite--follows::before { content: ","; }
+
+/* Long quotations in running text: set on the sunk ground, as the claim quote is. No coloured rule (README, Layout). */
+.eb-text > blockquote { grid-column: 1; margin: 0 0 var(--space-6); padding: var(--space-4) var(--space-6); background: var(--sunk); }
+.eb-text > blockquote p { margin: 0; font-size: 17px; line-height: 28px; }
